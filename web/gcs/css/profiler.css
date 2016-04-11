@@ -1,0 +1,70 @@
+#main{
+    width: 100%;
+    overflow: auto;
+    padding-top: 10px;
+    background-color: white;
+}
+pre{
+    width: 100%;
+    overflow-x: auto;
+    padding: 5px;
+    background-color: #d4dfd5;
+    margin-top: 0;
+}
+ul{
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+section{
+    background-color: #f4f4f4;
+    margin-bottom: 15px;
+}
+section .title{
+    background-color: #E74C3C;
+    padding: 5px;
+}
+section .title h3{
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+section .content-section{
+    padding: 10px;
+}
+input[type='submit'] {
+    width: 115px;
+    display: inline-block;
+    line-height: 34px;
+    margin: 0;
+    background-color: #e74c3c;
+    cursor: pointer;
+    border-radius: 2px;
+    color: white;
+    font-size: 17px;
+    padding: 0 10px;
+    transition-duration: 0.15s;
+    box-shadow: rgba(0, 0, 0, 0.0980392) 0 -1px 0 inset, rgba(0, 0, 0, 0.0980392) 0 2px 0;
+    text-decoration: none;
+    border: none;
+    outline:none;
+    position: relative;
+    top: 0;
+}
+input[type='text']  {
+    width: 500px;
+    padding: 8px;
+    outline:none;
+    margin-bottom: 8px;
+}
+input[type='file']  {
+    margin-left: 4px;
+}
+header .content{
+    width: 100%;
+    margin: auto;
+    padding: 5px 5px 5px 5px;
+}
+footer{
+    display: none;
+}

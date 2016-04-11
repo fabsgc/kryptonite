@@ -1,0 +1,1 @@
+<h1 style="text-align:center;">{{lang:.app.system.http.title:'code' => $code, 'description' => $description}}</h1>
