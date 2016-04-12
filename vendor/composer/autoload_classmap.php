@@ -6,5 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Scaffolding\\Scaffolding' => $vendorDir . '/gcsystem/scaffolding/src/Scaffolding.php',
 );

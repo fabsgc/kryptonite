@@ -1,0 +1,1 @@
+<gc:extends file="main"/>

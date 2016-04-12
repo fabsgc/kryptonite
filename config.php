@@ -111,7 +111,7 @@ define('DOCUMENT_ROOT', str_replace('\\', '/', __DIR__).'/');
 $db['hostname'] = "localhost";
 $db['username'] = "root";
 $db['password'] = "";
-$db['database'] = "test";
+$db['database'] = "kryptonite";
 $db['driver']   = "pdo";
 $db['type']     = "mysql";
 $db['charset']  = "utf8";
@@ -132,7 +132,7 @@ define('SPAM', true);
 define('CHARSET', 'UTF-8');
 
 // where the framework is placed. If it's the root, keep empty, otherwise : /projet
-define('FOLDER', 'gcsystem/gcs-dev/');
+define('FOLDER', '');
 
 // default language
 define('LANG', 'fr');

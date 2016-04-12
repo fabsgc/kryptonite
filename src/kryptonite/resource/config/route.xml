@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <group name="index" action="index">
+    <route name="default" url="(/*)" action="default"/>
+  </group>
+  <group name="user" action="user">
+    <route name="default" url="/user(/*)" action="default"/>
+  </group>
+</root>

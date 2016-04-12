@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<group name="admin" url="/admin">
+		<route name="index.default" url="(/*)" action="index.default" logged="true"/>
+		<route name="index.login" url="(/*)" action="index.login" logged="false" method="get"/>
+		<route name="index.loginSave" url="(/*)" action="index.loginSave" logged="false" method="post"/>
+		<route name="index.logout" url="/logout(/*)" action="index.logout" logged="true"/>
+
+		<group name="manager" action="manager" url="/manager" logged="true">
+			<route name="default" url="(/*)" action="default" method="get"/>
+			<route name="new" url="/new/(.+)(/*)" action="new" vars="token" method="get"/>
+			<route name="new.save" url="/new/(.+)(/*)" action="newSave" vars="token" method="post"/>
+			<route name="edit" url="/edit/([0-9]+)/(.+)(/*)" action="edit" vars="id,token" method="get"/>
+			<route name="edit.save" url="/edit/([0-9]+)/(.+)(/*)" action="editSave" vars="id,token" method="put"/>
+			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" method="get"/>
+		</group>
+
+		<group name="user" action="user" url="/user" logged="true">
+			<route name="default" url="(/*)" action="default" method="get"/>
+			<route name="new" url="/new/(.+)(/*)" action="new" vars="token" method="get"/>
+			<route name="new.save" url="/new/(.+)(/*)" action="new" vars="token" method="post"/>
+			<route name="edit" url="/edit/([0-9]+)/(.+)(/*)" action="edit" vars="id,token" method="get"/>
+			<route name="edit.save" url="/edit/([0-9]+)/(.+)(/*)" action="editSave" vars="id,token" method="put"/>
+			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" vars="id,token" method="get"/>
+		</group>
+
+		<group name="payment" action="payment" url="/payment" logged="true">
+			<route name="default" url="(/*)" action="default" method="get"/>
+			<route name="refund" url="/refund/([0-9]+)/(.+)(/*)" action="default" vars="id,token" method="get"/>
+		</group>
+
+		<group name="enigma" action="enigma" url="/enigma" logged="true">
+			<route name="new" url="/new/([0-9]+)/(.+)(/*)" action="new" vars="id,token" method="get"/>
+			<route name="new.save" url="/new/([0-9]+)/(.+)(/*)" action="newSave" vars="category,token" method="post"/>
+			<route name="edit" url="/edit/([0-9]+)/(.+)(/*)" action="edit" vars="id,token" method="get"/>
+			<route name="edit.save" url="/edit/([0-9]+)/(.+)(/*)" action="editSave" vars="id,token" method="put"/>
+			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" vars="id,token" method="get"/>
+		</group>
+
+		<group name="category" action="category" url="/category" logged="true">
+			<route name="default" url="(/*)" action="default" method="get"/>
+			<route name="see" url="/see/([0-9]+)(/*)" action="see" vars="id" method="get"/>
+			<route name="new" url="/new/(.+)(/*)" action="new" vars="token" method="get"/>
+			<route name="new.save" url="/new/(.+)(/*)" action="newSave" vars="token" method="post"/>
+			<route name="edit" url="/edit/([0-9]+)/(.+)(/*)" action="edit" vars="id,token" method="get"/>
+			<route name="edit.save" url="/edit/([0-9]+)/(.+)(/*)" action="editSave" vars="id,token" method="put"/>
+			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" vars="id,token" method="get"/>
+		</group>
+
+		<group name="upload" action="upload" url="/upload" logged="true">
+			<route name="default" url="(/*)" action="default" method="get"/>
+			<route name="upload" url="/upload(/*)" action="upload" method="post"/>
+			<route name="get" url="/get/([0-9]+)(/*)" action="get" vars="id" method="get" logged="*"/>
+		</group>
+	</group>
+</root>
