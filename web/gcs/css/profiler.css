@@ -56,6 +56,7 @@ input[type='text']  {
     padding: 8px;
     outline:none;
     margin-bottom: 8px;
+    margin-top: 1px;
 }
 input[type='file']  {
     margin-left: 4px;

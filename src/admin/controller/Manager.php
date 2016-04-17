@@ -9,10 +9,11 @@
 			return (new Template('manager/default', 'admin-manager-default'))
 				->assign('title', 'Managers')
 				->assign('filAriane', ['Managers'])
+				->assign('managers', \Orm\Entity\Manager::find()->fetch())
 				->show();
 		}
 
-		public function actionNew(){
+		public function actionNew(\Orm\Entity\Manager $enigma){
 
 		}
 
@@ -20,7 +21,7 @@
 
 		}
 
-		public function actionEdit(){
+		public function actionEdit($id, \Orm\Entity\Manager $enigma){
 
 		}
 

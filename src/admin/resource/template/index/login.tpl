@@ -2,7 +2,7 @@
 <html style="opacity:0;">
 	<head>
 		<meta charset="utf-8" />
-		<title>{$title} - Kryptonite</title>
+		<title>{$title} - MazeMind</title>
 		<link rel="icon" type="image/png" href="web/app/image/icon.png" />
 		<gc:asset type="css" files="web/admin/css/login.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/>
 		<script type="text/javascript" src="/web/app/js/jquery-1.11.2.min.js"></script>
@@ -12,7 +12,7 @@
 		<div id="main-login">
 			<header class="login">
 				<div id="logo">
-					<i class="fa fa-fire"></i> Kryptonite
+					<i class="fa fa-fire"></i> MazeMind
 				</div>
 			</header>
 			<div id="login" class="stack twisted">

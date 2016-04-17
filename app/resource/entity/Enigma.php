@@ -28,7 +28,8 @@
 				->beNull(false);
 			$this->field('logo')
 				->type(Field::STRING)
-				->size(128);
+				->size(128)
+				->defaultValue('web/app/image/category/default.png');
 			$this->field('category')
 				->type(Field::INT)
 				->beNull(false)
@@ -36,5 +37,29 @@
 					'type' => ForeignKey::MANY_TO_ONE,
 					'reference' => ['Category', 'id']
 				]);
+		}
+
+		public function beforeInsert()
+		{
+			$this->validation->text('title', 'titre')
+				->different('', 'Vous devez donner un titre à cette énigme');
+
+			$this->validation->text('description', 'description')
+				->different('', 'Vous devez donner une description à cette énigme');
+
+			$this->validation->text('answer', 'réponse')
+				->different('', 'Vous devez donner une réponse à cette énigme');
+		}
+
+		public function beforeUpdate()
+		{
+			$this->validation->text('title', 'titre')
+				->different('', 'Vous devez donner un titre à cette énigme');
+
+			$this->validation->text('description', 'description')
+				->different('', 'Vous devez donner une description à cette énigme');
+
+			$this->validation->text('answer', 'réponse')
+				->different('', 'Vous devez donner une réponse à cette énigme');
 		}
 	}

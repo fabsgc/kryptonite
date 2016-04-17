@@ -22,7 +22,7 @@
         <li>
             <a href="{{url:admin.payment.default}}">
                 <i class="fa fa-credit-card"></i>
-                <span class="title">Paiments</span>
+                <span class="title">Paiements</span>
             </a>
         </li>
         <li>

@@ -1,5 +1,5 @@
 <?php
-	namespace Controller\Request\Admin;
+	namespace Controller\Request\Kryptonite;
 
 	use System\Request\Data;
 	use \System\Request\Form;
@@ -13,7 +13,7 @@
 		public function post(){
 			$this->validation->text('username', 'Nom d\'utilisateur')
 				->sql([
-					'query' => 'SELECT COUNT(id) FROM manager WHERE username = :username AND password = :password',
+					'query' => 'SELECT COUNT(*) FROM user WHERE username = :username AND password = :password',
 					'constraint' => '==',
 					'value' => 1,
 					'vars' => [

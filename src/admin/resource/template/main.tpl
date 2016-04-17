@@ -2,16 +2,16 @@
 <html style="opacity:0;">
 	<head>
 		<meta charset="utf-8" />
-		<title>{$title} - Kryptonite</title>
-		<link rel="icon" type="image/png" href="/img/icon.png" />
-		<gc:asset type="css" files="web/admin/css/default.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/>
+		<title>{$title} - MazeMind</title>
+		<link rel="icon" type="image/png" href="{{path:IMAGE:app}}icon.png" />
+		<gc:asset type="css" files="web/admin/css/default.css,web/app/css/default.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/>
 		<script type="text/javascript" src="/web/app/js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="/web/admin/js/default.js"></script>
 	</head>
 	<body id="body">
 		<header class="default">
 			<div id="header-left">
-				<i class="fa fa-fire"></i> Kryptonite
+				<i class="fa fa-fire"></i> MazeMind
 			</div>
 			<div id="header-right">
 				<div class="right-account">
@@ -23,7 +23,7 @@
 							{$_SESSION['admin']['username']}
 						</div>
 						<div class="profile-avatar">
-							<img src="/web/app/image/avatar/default.png"/>
+							<img src="{{PATH:IMAGE,app}}default.png"/>
 						</div>
 					</div>
 				</div>
@@ -60,7 +60,7 @@
                 <li <gc:if condition="Request::getInstance()->controller == 'payment'"> class="active" </gc:if>>
                     <a href="{{url:admin.payment.default}}">
                         <i class="fa fa-credit-card"></i>
-                        <span class="title">Paiments</span>
+                        <span class="title">Paiements</span>
                     </a>
                 </li>
                 <li <gc:if condition="Request::getInstance()->controller == 'upload'"> class="active" </gc:if>>

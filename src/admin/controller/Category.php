@@ -2,6 +2,7 @@
 	namespace Admin;
 
 	use System\Controller\Controller;
+	use System\Exception\MissingEntityException;
 	use System\Response\Response;
 	use System\Template\Template;
 
@@ -81,7 +82,13 @@
 
 			if($cat->count() == 1){
 				if($category->sent() && $category->valid()){
-					$category->update();
+					try{
+						$category->update();
+					}
+					catch(MissingEntityException $e){
+						Response::getInstance()->status(500);
+					}
+
 					Response::getInstance()->header('Location: '. $this->getUrl('admin.category.default'));
 					$_SESSION['flash'] = 'La catégorie a bien été modifiée';
 				}

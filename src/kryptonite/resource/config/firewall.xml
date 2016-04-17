@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<roles name="role.kryptonte">
+	<roles name="kryptonite.role">
 		<role name="USER" />
 	</roles>
 	<config>
 		<login>
-			<source name="login" vars=""/>
+			<source name="kryptonite.user.login" vars=""/>
 		</login>
 		<default>
-			<source name="default" vars=""/>
+			<source name="kryptonite.index.default" vars=""/>
 		</default>
 		<forbidden template=".app/error/firewall">
 			<variable type="lang" name="title" value="system.firewall.forbidden.title"/>
 			<variable type="lang" name="message" value="system.firewall.forbidden.message"/>
 		</forbidden>
-		<csrf name="token.kryptonte" template=".app/error/firewall" enabled="true">
+		<csrf name="kryptonite.token" template=".app/error/firewall" enabled="true">
 			<variable type="lang" name="title" value="system.firewall.csrf.title"/>
 			<variable type="lang" name="message" value="system.firewall.csrf.message"/>
 		</csrf>
-		<logged name="logged.kryptonte"/>
+		<logged name="kryptonite.logged"/>
 	</config>
 </root>

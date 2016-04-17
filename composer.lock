@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "40987057cbaccbd86505c705552f623d",
+    "content-hash": "254f8d3b42c395a881f7f07843b2122d",
     "packages": [
         {
             "name": "gcsystem/framework",
@@ -12,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabsgc/framework.git",
-                "reference": "5109bde4a00fc76a801be5efe841fd72a9578a88"
+                "reference": "ffbc13ccd5c4868b1f550325a87ff03564ae3783"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/framework/zipball/5109bde4a00fc76a801be5efe841fd72a9578a88",
-                "reference": "5109bde4a00fc76a801be5efe841fd72a9578a88",
+                "url": "https://api.github.com/repos/fabsgc/framework/zipball/ffbc13ccd5c4868b1f550325a87ff03564ae3783",
+                "reference": "ffbc13ccd5c4868b1f550325a87ff03564ae3783",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +39,7 @@
                 "framework",
                 "gcsystem"
             ],
-            "time": "2015-07-03 21:55:15"
+            "time": "2016-04-12 02:31:19"
         },
         {
             "name": "gcsystem/scaffolding",
@@ -50,7 +51,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/6670929dbc3cf29298450435965c48f0e734684d",
+                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/bdfb86cc9b5bf674e11ede56fcb6540fa873f51c",
                 "reference": "6670929dbc3cf29298450435965c48f0e734684d",
                 "shasum": ""
             },

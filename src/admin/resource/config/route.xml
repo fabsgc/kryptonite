@@ -31,7 +31,7 @@
 
 		<group name="enigma" action="enigma" url="/enigma" logged="true">
 			<route name="new" url="/new/([0-9]+)/(.+)(/*)" action="new" vars="id,token" method="get"/>
-			<route name="new.save" url="/new/([0-9]+)/(.+)(/*)" action="newSave" vars="category,token" method="post"/>
+			<route name="new.save" url="/new/([0-9]+)/(.+)(/*)" action="newSave" vars="id,token" method="post"/>
 			<route name="edit" url="/edit/([0-9]+)/(.+)(/*)" action="edit" vars="id,token" method="get"/>
 			<route name="edit.save" url="/edit/([0-9]+)/(.+)(/*)" action="editSave" vars="id,token" method="put"/>
 			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" vars="id,token" method="get"/>
