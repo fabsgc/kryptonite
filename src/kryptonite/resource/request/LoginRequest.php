@@ -13,7 +13,7 @@
 		public function post(){
 			$this->validation->text('username', 'Nom d\'utilisateur')
 				->sql([
-					'query' => 'SELECT COUNT(*) FROM user WHERE username = :username AND password = :password',
+					'query' => 'SELECT COUNT(*) FROM user WHERE username = :username AND password = :password AND activated = 1',
 					'constraint' => '==',
 					'value' => 1,
 					'vars' => [

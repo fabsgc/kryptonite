@@ -14,7 +14,6 @@ time, mark, audio, video, input {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
@@ -29,7 +28,7 @@ html{
 body {
     min-width: 950px;
     line-height: 1;
-    background: url(../image/background-2.jpg) no-repeat top center;
+    background: url(../img/background.jpg) no-repeat top center;
 }
 ol, ul {
     list-style: none;
@@ -40,7 +39,6 @@ blockquote, q {
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
-    content: none;
 }
 table {
     border-collapse: collapse;
@@ -177,6 +175,7 @@ footer .info a{
     min-height: 300px;
     width: 900px;
     margin: auto;
+    margin-top: 25px;
 }
 
 #main .title-index{
@@ -187,7 +186,7 @@ footer .info a{
     font-size: 30px;
     padding: 10px;
     text-align: center;
-    margin: 25px auto;
+    margin: auto;
 }
 
 #main .hexagon-block{
@@ -206,7 +205,7 @@ footer .info a{
     text-decoration: none;
     padding: 15px 10px;
     display: block;
-    margin: 25px auto;
+    margin: 25px auto 0 auto;
 }
 
 #main .start a:hover{
@@ -218,10 +217,9 @@ footer .info a{
 #main .page{
     background-color: white;
     min-height: 450px;
-    width: 950px;
     margin: auto;
     padding:30px;
-    font-family: Calibri;
+    font-family: Calibri, serif;
 }
 
 #main .standalone-main{
@@ -233,7 +231,7 @@ footer .info a{
     width: 100%;
     color: white;
     font-size: 35px;
-    margin: 25px auto;
+    margin: 0 auto 25px auto;
     text-align: center;
 }
 
@@ -242,9 +240,7 @@ footer .info a{
 .hex {
     width:150px;
     height:86px;
-    background-color: #ccc;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background: #ccc no-repeat 50% 50%;
     background-size: auto 173px;
     position: relative;
     float:left;
@@ -296,7 +292,6 @@ footer .info a{
     background: inherit;
     top:0;
     left: 0;
-    background: inherit;
     background-repeat:no-repeat;
     backface-visibility: hidden;
 }
@@ -471,9 +466,8 @@ footer .info a{
 }
 
 .page .answer {
-    margin: 10px 0 0 0;
     width: 450px;
-    margin: auto;
+    margin: 10px auto auto auto;
 }
 
 .page .answer input[type="text"]{
@@ -501,7 +495,7 @@ footer .info a{
 
 .standalone-form{
     width: 350px;
-    margin: auto auto 25px auto;
+    margin: auto;
     padding: 25px 0 8px 0;
     background-color: #354054;
     border-bottom: 5px solid #74A79C;
@@ -587,8 +581,12 @@ footer .info a{
     color: white;
 }
 
+#error-message, #flash-message{
+    padding-bottom: 20px;
+}
+
 .alert{
-    margin-top: 18px!important;
+    margin-top: 0!important;
     margin-bottom: 0!important;
     padding-top: 10px!important;
     padding-bottom: 10px!important;

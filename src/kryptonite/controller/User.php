@@ -2,6 +2,7 @@
 	namespace Kryptonite;
 
 	use Helper\Mail\Mail;
+	use Orm\Entity\Enigmaiduserid;
 	use System\Response\Response;
 	use System\Template\Template;
 	use System\Controller\Controller;
@@ -12,6 +13,8 @@
 		public function actionDefault(){
 			return (new Template('user/default', 'kryptonite-user-default'))
 				->assign('title', 'Accueil')
+				->assign('user', \Orm\Entity\User::find()->where('User.id = 1')->fetch()->first())
+				//->assign('user', Enigmaiduserid::find()->fetch()->first())
 				->show();
 		}
 

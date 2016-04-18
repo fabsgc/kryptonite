@@ -1,6 +1,7 @@
 <?php
 	namespace Orm\Entity;
 
+	use System\Orm\Builder;
 	use System\Orm\Entity\Entity;
 	use System\Orm\Entity\Field;
 	use System\Orm\Entity\ForeignKey;
@@ -14,6 +15,7 @@
 	 /** @property integer $bought */
 	 /** @property string $avatar */
 	 /** @property integer $activated */
+	 /** @property integer $parent */
 
 	class User extends Entity{
 		public function tableDefinition(){
@@ -58,8 +60,27 @@
 				->defaultValue('web/app/image/avatar/default.png');
 			$this->field('activated')
 				->type(Field::INT)
-				->beNull(false)
 				->defaultValue('0');
+			$this->field('parent')
+				->type(Field::INT)
+				->foreign([
+					'type' => ForeignKey::MANY_TO_ONE,
+					'reference' => ['User', 'id'],
+					'join' => Builder::JOIN_LEFT
+				]);
+			$this->field('enigma')
+				->type(Field::INT)
+				->foreign([
+					'type' => ForeignKey::MANY_TO_ONE,
+					'reference' => ['Enigma', 'id'],
+					'join' => Builder::JOIN_LEFT
+				]);
+			$this->field('enigmas')
+				->type(Field::INT)
+				->foreign([
+					'type' => ForeignKey::MANY_TO_MANY,
+					'reference' => ['Enigma', 'id']
+				]);
 		}
 
         public function beforeInsert(){
