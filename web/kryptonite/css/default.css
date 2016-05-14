@@ -122,10 +122,12 @@ header .right{
 }
 header .right a{
     float: right;
-    width: 140px;
+    min-width: 140px;
+    max-width: 160px;
     display: inline-block;
     height: 80px;
     text-align: center;
+    padding: 0 5px;
 }
 header .right a i{
     display: block;
@@ -519,7 +521,8 @@ footer .info a{
 
 .standalone-form .line input[type="email"],
 .standalone-form .line input[type="password"],
-.standalone-form .line input[type="text"]{
+.standalone-form .line input[type="text"],
+.standalone-form .line select{
     box-sizing: border-box;
     border: none;
     width: 250px;
@@ -527,6 +530,11 @@ footer .info a{
     padding: 0 15px;
     outline: none;
     line-height: 50px;
+}
+
+.standalone-form .line select{
+    font-size: 17px;
+    color: #A9A9A9;
 }
 
 .standalone-form .line input[type="date"]{
@@ -586,8 +594,305 @@ footer .info a{
 }
 
 .alert{
-    margin-top: 0!important;
-    margin-bottom: 0!important;
     padding-top: 10px!important;
     padding-bottom: 10px!important;
+    max-width: 900px;
+    margin: auto!important;
+}
+
+/* ################ HOME */
+
+.main-home{
+    width: 100%!important;
+}
+
+.main-home .home-start{
+    background-color: white;
+    margin: auto;
+    padding: 30px 30px 0 30px;
+    border-bottom: 4px solid #8bbdb2;
+}
+
+.main-home .home-start .home-progress{
+    width: 600px;
+    margin: auto;
+}
+
+.main-home .home-progress #progress{
+    width: 100%;
+    border: 1px solid #797f7b;
+    height: 35px;
+    background-color: #d1fbef;
+}
+
+.main-home .home-progress #progress-bar{
+    min-width: 45px;
+    background-color: #8bbdb2;
+    height: 33px;
+    color: white;
+    line-height: 33px;
+    padding: 0 10px;
+}
+
+.main-home .home-continue{
+    margin-bottom: 25px;
+}
+
+.main-home .home-continue a{
+    width: 175px;
+    font-size: 22px;
+    color: white;
+    background-color: #f06060;
+    border-bottom: 3px solid #C24C4C;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 10px;
+    display: block;
+    margin: 25px auto 0 auto;
+}
+
+.main-home .home-continue a:hover{
+    background-color: #D44A4A;
+    border-bottom: 3px solid #B13D3D;
+    transition-duration:0.15s;
+}
+
+.main-home .home-tabs{
+    width: 900px;
+    margin: auto;
+    display: flex;
+}
+
+.main-home .home-tabs a.tab{
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    background-color: #465674;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-top: 2px solid #8bbdb2;
+    position: relative;
+    top: 4px;
+}
+
+.main-home .home-tabs a.tab:hover{
+    border-bottom: 0;
+    transition-duration:0.15s;
+    background-color: #5c6f93;
+}
+
+.main-home .home-tabs a.activated{
+    background-color: #697fb0;
+}
+
+.main-home .home-tabs .tab-25{
+    width: 25%;
+}
+
+.main-home .home-tabs .tab-33{
+    width: 33%;
+}
+
+.main-home .home-content{
+    width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-top: 4px solid #8bbdb2;
+}
+
+.main-home .home-content .enigma{
+    width: 100%;
+    border-top: 1px solid white;
+    background-color: #697fb0;
+}
+
+.main-home .home-content .enigma .logo{
+    width: 6%;
+    height: 52px;
+    float: left;
+}
+
+.main-home .home-content .enigma .logo img{
+    max-width: 100%;
+}
+
+.main-home .home-content .enigma .description{
+    width: 94%;
+    line-height: 52px;
+    font-size: 16px;
+    color: white;
+    height: 52px;
+    float: right;
+    padding-left: 10px;
+}
+
+.main-home .home-content .enigma .go{
+    float: right;
+}
+
+.main-home .home-content .enigma .go a span{
+    line-height: 52px;
+}
+
+.main-home .home-content .enigma .go a{
+    background-color: #465674;
+    display: inline-block;
+    height: 52px;
+    color: white;
+    padding: 0 15px;
+    text-decoration: none;
+}
+
+.main-home .home-content .enigma .go a:hover{
+    transition-duration:0.15s;
+    background-color: #C24C4C;
+}
+
+.main-home .home-content h2.empty{
+    font-size: 18px;
+    text-align: center;
+}
+
+.main-home .home-content .success{
+    width: 20%;
+    float: left;
+}
+
+.main-home .home-content .success .logo{
+    padding: 10px;
+}
+
+.main-home .home-content .success .logo img{
+    width: 100%;
+    border-radius: 100px;
+}
+
+.main-home .home-content .success .description{
+    text-align: center;
+}
+
+div#main a.button{
+    display:inline-block;
+    line-height:35px;
+    margin:0px 10px 10px 0;
+    background-color:#f06060;
+    cursor:pointer;
+    color:white;
+    font-size:17px;
+    color:white !important;
+    padding:2px 15px;
+    -webkit-transition-duration:0.15s;
+    -moz-transition-duration:0.15s;
+    -ms-transition-duration:0.15s;
+    -o-transition-duration:0.15s;
+    transition-duration:0.15s;
+    box-shadow:rgba(0, 0, 0, 0.0980392) 0px -1px 0px inset, rgba(0, 0, 0, 0.0980392) 0px 2px 0px;text-decoration:none;
+}
+
+div#main a.button:hover{
+    background-color:#bd3426;
+}
+
+a.left{
+    float:left;
+    margin:0px 10px 10px 0 !important;
+}
+
+a.right{
+    float:right;
+    margin:0px 0 10px 10px !important;
+}
+
+/* #################### ENIGME LISTE */
+
+.enigme-list{
+    width: 250px;
+    height: 275px;
+    float: left;
+    margin: 0 65px 50px 0;
+}
+
+.enigme-list:nth-child(3n){
+    margin-right: 0;
+}
+
+.enigme-list .content {
+    width: 100%;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.enigme-list .content .title{
+    font-size: 23px;
+    text-align: center;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.enigme-list .content .picture img{
+    width: 100%;
+}
+
+.stack { position: relative; z-index: 10; }
+.stack:before, .stack:after {
+    content: "";
+    border-radius: 3px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.3s all ease-out;
+    -moz-transition: 0.3s all ease-out;
+    transition: 0.3s all ease-out;
+}
+.stack:before { top: 4px; z-index: -10; }
+.stack:after { top: 8px; z-index: -20; }
+.stack.twisted:before {
+    -webkit-transform: rotate(4deg);
+    -moz-transform: rotate(4deg);
+    transform: rotate(4deg);
+}
+.stack.twisted:after {
+    -webkit-transform: rotate(-4deg);
+    -moz-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+}
+
+.enigme-list:nth-child(4n+1) .content,
+.stack:nth-child(4n+1):before,
+.stack:nth-child(4n+1):after{
+    border: 10px solid #8bbdb2;
+    background-color: #8bbdb2;
+}
+
+.enigme-list:nth-child(4n+2) .content,
+.stack:nth-child(4n+2):before,
+.stack:nth-child(4n+2):after{
+    border: 10px solid #f06060;
+    background-color: #f06060;
+}
+
+.enigme-list:nth-child(4n+3) .content,
+.stack:nth-child(4n+3):before,
+.stack:nth-child(4n+3):after{
+    border: 10px solid #f3b562;
+    background-color: #f3b562;
+}
+
+.enigme-list:nth-child(4n+4) .content,
+.stack:nth-child(4n+4):before,
+.stack:nth-child(4n+4):after{
+    border: 10px solid #baddf0;
+    background-color: #baddf0;
 }

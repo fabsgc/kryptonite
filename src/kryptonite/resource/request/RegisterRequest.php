@@ -31,5 +31,8 @@
 
 			$this->validation->text('password', 'Mot de passe')
 				->lengthMin(6, 'Votre mot de passe doit faire 6 caractères minimum');
+			
+			$this->validation->select('role', 'Je suis')
+				->in(['STUDENT', 'TEACHER', 'INDIVIDUAL'], 'Cette option n\'est pas disponible');
 		}
 	}

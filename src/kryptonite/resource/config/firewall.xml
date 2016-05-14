@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<roles name="kryptonite.role">
-		<role name="USER" />
-		<role name="ADMIN" />
+		<role name="STUDENT" />
+		<role name="TEACHER" />
+		<role name="INDIVIDUAL" />
 	</roles>
 	<config>
 		<login>

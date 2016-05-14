@@ -18,7 +18,16 @@
             <input type="password" name="password" placeholder="Mot de passe" value=""/>
         </div>
         <div class="line">
-            <input type="submit" name="form-register" value="Connexion" />
+            <gc:call template="displayErrorsForm($form->errors(), 'role')"/>
+            <i class="fa fa-child"> </i>
+            <select name="role">
+                <gc:foreach var="$roles" as="$key => $value">
+                    <option value="{$key}" <gc:if condition="$role == $key"></gc:if>> {$value}</option>
+                </gc:foreach>
+            </select><br />
+        </div>
+        <div class="line">
+            <input type="submit" name="form-register" value="Inscription" />
         </div>
     </form>
 </div>

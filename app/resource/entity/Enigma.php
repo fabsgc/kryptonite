@@ -26,6 +26,10 @@
 				->type(Field::STRING)
 				->size(64)
 				->beNull(false);
+			$this->field('points')
+				->type(Field::INT)
+				->defaultValue('0')
+				->beNull(false);
 			$this->field('logo')
 				->type(Field::STRING)
 				->size(128)

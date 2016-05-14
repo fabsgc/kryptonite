@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>{$title} - MazeMind</title>
-		<link rel="icon" type="image/png" href="{{path:IMAGE:app}}icon.png" />
+		<link rel="icon" type="image/png" href="/{{path:IMAGE:app}}icon.png" />
 		<gc:asset type="css" files="web/admin/css/default.css,web/app/css/default.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/>
 		<script type="text/javascript" src="/web/app/js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="/web/admin/js/default.js"></script>
@@ -23,7 +23,7 @@
 							{$_SESSION['admin']['username']}
 						</div>
 						<div class="profile-avatar">
-							<img src="{{PATH:IMAGE,app}}default.png"/>
+							<img src="/{{path:IMAGE:app}}/avatar/default.png"/>
 						</div>
 					</div>
 				</div>

@@ -5,38 +5,39 @@
 	use System\Orm\Entity\Field;
 	use System\Orm\Entity\ForeignKey;
 
-	 /** @property int $id */
-	 /** @property integer $user_id */
-	 /** @property integer $enigma_id */
-	 /** @property integer $count */
+	/**
+	  * @property integer id
+	  * @property integer user
+	  * @property integer enigma
+	*/
 
-	class Enigmaiduserid extends Entity{
+	class EnigmaUser extends Entity{
 		public function tableDefinition(){
-			$this->name('Enigmaiduserid');
-			$this->form('form-enigmaiduserid');
+			$this->name('enigma_user');
+			$this->form('form-enigma_user');
 			$this->field('id')
 				->primary(true)
 				->unique(true)
 				->type(Field::INCREMENT)
 				->beNull(false);
-			$this->field('user_id')
+			$this->field('user')
 				->type(Field::INT)
 				->beNull(false)
 				->foreign([
 					'type' => ForeignKey::MANY_TO_ONE,
 					'reference' => ['User', 'id']
 				]);
-			$this->field('enigma_id')
+			$this->field('finished')
+				->type(Field::INT)
+				->beNull(false)
+				->defaultValue('0');
+			$this->field('enigma')
 				->type(Field::INT)
 				->beNull(false)
 				->foreign([
 					'type' => ForeignKey::MANY_TO_ONE,
 					'reference' => ['Enigma', 'id']
 				]);
-			$this->field('count')
-				->type(Field::INT)
-				->beNull(false)
-				->defaultValue('0');
 		}
 
         public function beforeInsert(){

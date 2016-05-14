@@ -4,7 +4,7 @@
 		<title>{$title} - MazeMind</title>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 		<title>{$title} - Kryptonite</title>
-		<link rel="icon" type="image/png" href="{{path:IMAGE:app}}icon.png" />
+		<link rel="icon" type="image/png" href="/{{path:IMAGE:app}}icon.png" />
 		<gc:asset type="css" files="web/kryptonite/css/default.css,web/app/css/default.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/>
 		<script type="text/javascript" src="/{{path:JS:app}}jquery-1.11.2.min.js"></script>
 	</head>
@@ -35,14 +35,39 @@
                             <span>Inscription</span>
                         </a>
 					<gc:else/>
-						 <a href="{{url:kryptonite.user.logout}}" class="user">
+						<a href="{{url:kryptonite.user.logout}}" class="user">
 							<i class="fa fa-sign-out">&nbsp;</i>
 							<span>Déconnexion</span>
-						 </a>
+						</a>
+						<a href="{{url:kryptonite.user.account}}" class="user">
+							<i class="fa fa-cog">&nbsp;</i>
+							<span>Réglages</span>
+						</a>
+						<a href="{{url:kryptonite.user.suscribe}}" class="user">
+							<i class="fa fa-money">&nbsp;</i>
+							<span>Abonnements</span>
+						</a>
+						<a href="{{url:kryptonite.category.browse}}" class="user">
+							<i class="fa fa-th-list">&nbsp;</i>
+							<span>Parcourir</span>
+						</a>
 					</gc:if>
 				</div>
 			</header>
-			<div id="main">
+
+			{{php:
+				$namesRequest = [
+					'kryptonite.user.default',
+					'kryptonite.user.home-finished',
+					'kryptonite.user.home-successes',
+					'kryptonite.user.home-students',
+					'kryptonite.user.home'
+				];
+
+				$nameRequest = \System\Request\Request::getInstance()->name;
+			}}
+
+			<div id="main" <gc:if condition="in_array($nameRequest,$namesRequest)">class="main-home"</gc:if>>
 				<div class="content">
 					<gc:if condition="isset($request) && count($request->errors()) > 0">
 						<div id="error-message">
