@@ -5,6 +5,16 @@
 	use System\Orm\Entity\Field;
 	use System\Orm\Entity\ForeignKey;
 
+	/**
+	 * Class Payment
+	 * @property integer id
+	 * @property string reference
+	 * @property integer time
+	 * @property float value
+	 * @property \Orm\Entity\User user
+	 * @package Orm\Entity
+	 */
+
 	class Payment extends Entity{
 		public function tableDefinition(){
 			$this->name('payment');

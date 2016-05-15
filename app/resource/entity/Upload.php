@@ -3,7 +3,15 @@
 
 	use System\Orm\Entity\Entity;
 	use System\Orm\Entity\Field;
-	use System\Orm\Entity\ForeignKey;
+
+	/**
+	 * Class Upload
+	 * @property integer id
+	 * @property string name
+	 * @property string path
+	 * @property string extension
+	 * @package Orm\Entity
+	 */
 
 	class Upload extends Entity{
 		public function tableDefinition(){

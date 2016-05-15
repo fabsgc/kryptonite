@@ -6,11 +6,13 @@
 	use System\Orm\Entity\ForeignKey;
 
 	/**
-	  * @property int id
-	  * @property string title
-	  * @property integer price
-	  * @property integer duration
-	*/
+	 * Class Offer
+	 * @property integer id
+	 * @property string title
+	 * @property integer price
+	 * @property integer duration
+	 * @package Orm\Entity
+    */
 
 	class Offer extends Entity{
 		public function tableDefinition(){

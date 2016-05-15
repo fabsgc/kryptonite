@@ -7,6 +7,7 @@
 	use System\Orm\Entity\ForeignKey;
 
 	/**
+	 * Class User
 	 * @property int id
 	 * @property integer parent
 	 * @property int enigma
@@ -21,6 +22,7 @@
 	 * @property integer activated
 	 * @property integer suscribe_end
 	 * @property \Orm\Entity\Enigma[] enigmas
+	 * @package Orm\Entity
 	 */
 
 	class User extends Entity{

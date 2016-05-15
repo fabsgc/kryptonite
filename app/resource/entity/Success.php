@@ -6,9 +6,11 @@
 	use System\Orm\Entity\ForeignKey;
 
 	/**
-	  * @property integer id
-	  * @property string title
-	  * @property string logo
+	 * Class Success
+	 * @property integer id
+	 * @property string title
+	 * @property string logo
+	 * @package Orm\Entity
 	*/
 
 	class Success extends Entity{

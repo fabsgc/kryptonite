@@ -3,7 +3,15 @@
 
 	use System\Orm\Entity\Entity;
 	use System\Orm\Entity\Field;
-	use System\Orm\Entity\ForeignKey;
+
+	/**
+	 * Class Manager
+	 * @property integer id
+	 * @property string username
+	 * @property string password
+	 * @property string email
+	 * @package Orm\Entity
+	 */
 
 	class Manager extends Entity{
 		public function tableDefinition(){

@@ -7,6 +7,7 @@
 	use System\Orm\Entity\ForeignKey;
 
 	/**
+	 * Class Category
 	 * @property string description
 	 * @property string logo
 	 * @property \Orm\Entity\Enigma[]

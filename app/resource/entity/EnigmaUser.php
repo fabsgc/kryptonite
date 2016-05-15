@@ -6,9 +6,11 @@
 	use System\Orm\Entity\ForeignKey;
 
 	/**
-	  * @property integer id
-	  * @property integer user
-	  * @property integer enigma
+	 * Class EnigmaUser
+	 * @property integer id
+	 * @property integer user
+	 * @property integer enigma
+	 * @package Orm\Entity
 	*/
 
 	class EnigmaUser extends Entity{
