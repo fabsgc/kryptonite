@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <style>
   label{
     display:inline-block;
@@ -33,16 +33,16 @@
 	<input type="submit" id="submit" value="envoyer"/><br />
 </form>
 <p>
-	<gc:if condition="isset($request)">
-		<gc:if condition="!$request->valid()">
+	{gc:if condition="isset($request)"}
+		{gc:if condition="!$request->valid()"}
 			<ul>
-				<gc:foreach var="$request->errors()" as="$errors">
+				{gc:foreach var="$request->errors()" as="$errors"}
 					<li><strong>{$errors['field']}</strong> : {$errors['message']}</li>
-				</gc:foreach>
+				{/gc:foreach}
 			</ul>
 			<pre>{{php: var_dump($request->errors()) }}</pre>
-		<gc:else/>
+		{gc:else/}
 			<strong>Validé !</strong>
-		</gc:if>
-	</gc:if>
+		{/gc:if}
+	{/gc:if>
 </p>

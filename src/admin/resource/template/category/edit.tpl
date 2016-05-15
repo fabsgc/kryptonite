@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <form method="post" action="">
 	<input type="hidden" name="form-category"/>
 	<input type="hidden" name="request-put"/>

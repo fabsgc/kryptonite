@@ -2,39 +2,39 @@
 <root>
 	<group name="kryptonite">
 		<group name="index" action="index">
-			<route name="default" url="(/*)" action="default" logged="false"/>
+			<route name="default" url="(/*)" action="default" logged="false"/> <!-- fait -->
 		</group>
 
 		<group name="user" action="user">
-			<route name="default" url="(/*)" action="default" logged="true"/>
-			<route name="home-finished" url="/home/finished(/*)" action="homeFinished" logged="true"/>
-			<route name="home-successes" url="/home/successes(/*)" action="homeSuccesses" logged="true"/>
-			<route name="home-students" url="/home/students(/*)" action="homeStudents" logged="true"/>
-			<route name="account" url="/user/account(/*)" action="account" logged="true" method="get"/>
-			<route name="accountSave" url="/user/account(/*)" action="accountSave" logged="true" method="put"/>
+			<route name="default" url="(/*)" action="default" logged="true"/> <!-- fait -->
+			<route name="home-finished" url="/home/finished(/*)" action="homeFinished" logged="true"/> <!-- fait -->
+			<route name="home-successes" url="/home/successes(/*)" action="homeSuccesses" logged="true"/> <!-- fait -->
+			<route name="home-students" url="/home/students(/*)" action="homeStudents" logged="true"/> <!-- fait -->
+			<route name="account" url="/user/account(/*)" action="account" logged="true" method="get"/> <!-- fait -->
+			<route name="accountSave" url="/user/account(/*)" action="accountSave" logged="true" method="put"/> <!-- fait -->
 			<route name="suscribe" url="/user/suscribe(/*)" action="suscribe" logged="true" method="get"/>
 			<route name="suscribeSave" url="/user/suscribe(/*)" action="suscribeSave" logged="true" method="put"/>
 			<route name="suscribeStudent" url="/user/suscribe/([0-9]+)(/*)" action="suscribe" logged="true" vars="id" method="get"/>
 			<route name="suscribeStudentSave" url="/user/suscribe/([0-9]+)(/*)" action="suscribeSave" logged="true" vars="id" method="put"/>
-			<route name="login" url="/user/sign-in(/*)" action="login" method="get" logged="false"/>
-			<route name="loginSave" url="/user/sign-in(/*)" action="loginSave" method="post" logged="false"/>
-			<route name="register" url="/user/sign-up(/*)" action="register" method="get" logged="false"/>
-			<route name="registerSave" url="/user/sign-up(/*)" action="registerSave" method="post" logged="false"/>
-			<route name="activate" url="/user/activate/(.+)(/*)" action="activate" vars="id" method="get" logged="false"/>
-			<route name="logout" url="/user/logout/(/*)" action="logout" logged="true" method="get"/>
+			<route name="login" url="/user/sign-in(/*)" action="login" method="get" logged="false"/> <!-- fait -->
+			<route name="loginSave" url="/user/sign-in(/*)" action="loginSave" method="post" logged="false"/> <!-- fait -->
+			<route name="register" url="/user/sign-up(/*)" action="register" method="get" logged="false"/> <!-- fait -->
+			<route name="registerSave" url="/user/sign-up(/*)" action="registerSave" method="post" logged="false"/> <!-- fait -->
+			<route name="activate" url="/user/activate/(.+)(/*)" action="activate" vars="id" method="get" logged="false"/> <!-- fait -->
+			<route name="logout" url="/user/logout/(/*)" action="logout" logged="true" method="get"/> <!-- fait -->
 		</group>
 
 		<group name="student" action="student" url="/student">
-			<route name="create" url="/create(/*)" action="create" logged="true" method="get"/>
-			<route name="createSave" url="/create(/*)" action="create" logged="true" method="post"/>
-			<route name="update" url="/update/([0-9]+)(/*)" action="create" logged="true" method="get"/>
-			<route name="updateSave" url="/update/([0-9]+)(/*)" action="create" logged="true" method="post"/>
-			<route name="delete" url="/delete/([0-9]+)(/*)" action="create" logged="true" method="get"/>
+			<route name="create" url="/create(/*)" action="create" logged="true" method="get"/> <!-- fait -->
+			<route name="createSave" url="/create(/*)" action="createSave" logged="true" method="post"/> <!-- fait -->
+			<route name="update" url="/update/([0-9]+)(/*)" action="update" logged="true" vars="id" method="get"/> <!-- fait -->
+			<route name="updateSave" url="/update/([0-9]+)(/*)" action="updateSave" logged="true" vars="id" method="put"/> <!-- fait -->
+			<route name="delete" url="/delete/([0-9]+)(/*)" action="delete" logged="true" vars="id" method="get"/> <!-- fait -->
 		</group>
 
 		<group name="category" action="category" url="/category">
-			<route name="browse" url="/browse(/*)" action="browse" logged="true" method="get"/>
-			<route name="category" url="/([0-9]+)/(.+)(/*)" action="category" vars="id,slug" logged="true" method="get"/>
+			<route name="browse" url="/browse(/*)" action="browse" logged="true" method="get"/> <!-- fait -->
+			<route name="category" url="/([0-9]+)/(.+)(/*)" action="category" vars="id,slug" logged="true" method="get"/> <!-- fait -->
 		</group>
 
 		<group name="enigma" action="enigma" url="/enigma">

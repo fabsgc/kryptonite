@@ -47,6 +47,15 @@
 			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" vars="id,token" method="get"/>
 		</group>
 
+		<group name="success" action="success" url="/success" logged="true">
+			<route name="default" url="(/*)" action="default" method="get"/>
+			<route name="new" url="/new/(.+)(/*)" action="new" vars="token" method="get"/>
+			<route name="new.save" url="/new/(.+)(/*)" action="new" vars="token" method="post"/>
+			<route name="edit" url="/edit/([0-9]+)/(.+)(/*)" action="edit" vars="id,token" method="get"/>
+			<route name="edit.save" url="/edit/([0-9]+)/(.+)(/*)" action="editSave" vars="id,token" method="put"/>
+			<route name="delete" url="/delete/([0-9]+)/(.+)(/*)" action="delete" vars="id,token" method="get"/>
+		</group>
+
 		<group name="upload" action="upload" url="/upload" logged="true">
 			<route name="default" url="(/*)" action="default" method="get"/>
 			<route name="upload" url="/upload(/*)" action="upload" method="post"/>

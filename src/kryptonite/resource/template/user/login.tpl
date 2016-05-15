@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <h1 class="standalone-title">{$title}</h1>
 <div class="standalone-form">
     <form method="post" action="{{url:kryptonite.user.login}}">

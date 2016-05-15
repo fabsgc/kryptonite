@@ -20,7 +20,7 @@
 	 * @property string avatar
 	 * @property integer activated
 	 * @property integer suscribe_end
-	 * @property array enigmas
+	 * @property \Orm\Entity\Enigma[] enigmas
 	 */
 
 	class User extends Entity{
@@ -84,7 +84,7 @@
 				->type(Field::STRING)
 				->size(128)
 				->beNull(false)
-				->defaultValue('web/app/image/avatar/default.png');
+				->defaultValue('web/app/img/avatar/default.png');
 			$this->field('activated')
 				->type(Field::INT)
 				->defaultValue('0');

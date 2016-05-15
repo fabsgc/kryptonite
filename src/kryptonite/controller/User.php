@@ -1,10 +1,9 @@
 <?php
 	namespace Kryptonite;
 
+	use Controller\Request\Kryptonite\AccountRequest;
+	use Controller\Request\Kryptonite\SuscribeRequest;
 	use Helper\Mail\Mail;
-	use Orm\Entity\Enigma;
-	use Orm\Entity\EnigmaUser;
-	use Orm\Entity\Success;
 	use Orm\Entity\SuccessUser;
 	use System\Response\Response;
 	use System\Template\Template;
@@ -14,112 +13,96 @@
 
 	class User extends Controller{
 		public function actionDefault(){
-			$user = \Orm\Entity\User::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('User.id = :id')->fetch()->first();
-
-			$enigmas = EnigmaUser::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('EnigmaUser.user = :id')->fetch();
-
-			$enigmasTotal = Enigma::count()->fetch();
-
 			return (new Template('user/default', 'kryptonite-user-default'))
 				->assign('title', 'Accueil')
-				->assign('user', $user)
-				->assign('enigmas', $enigmas)
-				->assign('enigmasTotal', $enigmasTotal)
 				->show();
 		}
 
 		public function actionHomeFinished(){
-			$user = \Orm\Entity\User::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('User.id = :id')->fetch()->first();
-
-			$enigmas = EnigmaUser::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('EnigmaUser.user = :id')->fetch();
-
-			$enigmasTotal = Enigma::count()->fetch();
-
 			return (new Template('user/homeFinished', 'kryptonite-user-home-finished'))
 				->assign('title', 'Mes énigmes achevées')
-				->assign('user', $user)
-				->assign('enigmas', $enigmas)
-				->assign('enigmasTotal', $enigmasTotal)
 				->show();
 		}
 
 		public function actionHomeSuccesses(){
-			$user = \Orm\Entity\User::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('User.id = :id')->fetch()->first();
-
-			$enigmas = EnigmaUser::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('EnigmaUser.user = :id')->fetch();
-
-			$enigmasTotal = Enigma::count()->fetch();
-
 			$successes = SuccessUser::find()
 				->vars('id', $_SESSION['kryptonite']['id'])
 				->where('SuccessUser.user = :id')->fetch();
 
 			return (new Template('user/homeSuccesses', 'kryptonite-user-home-successes'))
 				->assign('title', 'Mes badges')
-				->assign('user', $user)
-				->assign('enigmas', $enigmas)
-				->assign('enigmasTotal', $enigmasTotal)
 				->assign('successes', $successes)
 				->show();
 		}
 
 		public function actionHomeStudents(){
-			$user = \Orm\Entity\User::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('User.id = :id')->fetch()->first();
+			if($_SESSION['kryptonite']['role'] == 'TEACHER') {
+				$students = \Orm\Entity\User::find()
+					->vars('id', $_SESSION['kryptonite']['id'])
+					->where('User.parent = :id')->fetch();
 
-			$enigmas = EnigmaUser::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('EnigmaUser.user = :id')->fetch();
-
-			$enigmasTotal = Enigma::count()->fetch();
-
-			$students = \Orm\Entity\User::find()
-				->vars('id', $_SESSION['kryptonite']['id'])
-				->where('User.parent = :id')->fetch();
-
-			return (new Template('user/homeStudents', 'kryptonite-user-home-students'))
-				->assign('title', 'Mes élèves')
-				->assign('user', $user)
-				->assign('enigmas', $enigmas)
-				->assign('enigmasTotal', $enigmasTotal)
-				->assign('students', $students)
-				->show();
+				return (new Template('user/homeStudents', 'kryptonite-user-home-students'))
+					->assign('title', 'Mes élèves')
+					->assign('students', $students)
+					->show();
+			}
+			else{
+				Response::getInstance()->status(404);
+			}
 		}
 
-		public function actionAccount(){
+		public function actionAccount(AccountRequest $request){
 			return (new Template('user/account', 'kryptonite-user-account'))
 				->assign('title', 'Réglages')
+				->assign('request', $request)
+				->assign('username', $_SESSION['kryptonite']['username'])
+				->assign('email', $_SESSION['kryptonite']['email'])
 				->show();
 		}
 
-		public function actionAccountSave(){
-			return (new Template('user/account', 'kryptonite-user-account'))
-				->assign('title', 'Réglages')
-				->show();
+		public function actionAccountSave(AccountRequest $request, $username, $email, $password){
+			if($request->sent() && $request->valid()) {
+				/** @var \Orm\Entity\User $user */
+				$user = \Orm\Entity\User::find()
+					->where("User.id")
+					->vars('id', $_SESSION['kryptonite']['id'])
+					->fetch()->first();
+
+				$user->username = $username;
+				$user->email = $email;
+				$user->password = sha1($password);
+				$user->update();
+
+				Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.index.default'));
+				$_SESSION['flash'] = 'Votre compte a bien été mis à jour';
+			}
+			else{
+				return (new Template('user/account', 'kryptonite-user-account'))
+					->assign('title', 'Réglages')
+					->assign('request', $request)
+					->assign('username', $username)
+					->assign('email', $email)
+					->show();
+			}
 		}
 
-		public function actionSuscribe($id){
+		public function actionSuscribe(SuscribeRequest $request, $id, $offer, $bank, $cvc){
 			return (new Template('user/suscribe', 'kryptonite-user-suscribe'))
 				->assign('title', 'Abonnements')
+				->assign('request', $request)
+				->assign('offer', $offer)
+				->assign('bank', $bank)
+				->assign('cvc', $cvc)
 				->show();
 		}
 
-		public function actionSuscribeSave($id){
+		public function actionSuscribeSave(SuscribeRequest $request, $id, $offer, $bank, $cvc){
 			return (new Template('user/suscribe', 'kryptonite-user-suscribe'))
 				->assign('title', 'Abonnements')
+				->assign('request', $request)
+				->assign('offer', $offer)
+				->assign('bank', $bank)
+				->assign('cvc', $cvc)
 				->show();
 		}
 
@@ -197,7 +180,7 @@
 				$mail->send();
 
 				Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.index.default'));
-				$_SESSION['flash'] = 'Votre inscription a bien été enregistrée. Veuillez suivre instructions que nous llons vous envoyer par mail';
+				$_SESSION['flash'] = 'Votre inscription a bien été enregistrée. Veuillez suivre instructions que nous allons vous envoyer par mail';
 			}
 			else{
 				return (new Template('user/register', 'kryptonite-user-register'))

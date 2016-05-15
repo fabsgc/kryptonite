@@ -1,1 +1,1 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}

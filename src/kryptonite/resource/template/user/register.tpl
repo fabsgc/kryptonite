@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <h1 class="standalone-title">{$title}</h1>
 <div class="standalone-form">
     <form method="post" action="{{url:kryptonite.user.register}}">
@@ -21,9 +21,9 @@
             <gc:call template="displayErrorsForm($form->errors(), 'role')"/>
             <i class="fa fa-child"> </i>
             <select name="role">
-                <gc:foreach var="$roles" as="$key => $value">
-                    <option value="{$key}" <gc:if condition="$role == $key"></gc:if>> {$value}</option>
-                </gc:foreach>
+                {gc:foreach var="$roles" as="$key => $value"}
+                    <option value="{$key}" {gc:if condition="$role == $key"}{/gc:if}> {$value}</option>
+                {/gc:foreach}
             </select><br />
         </div>
         <div class="line">

@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <div class="title-index">
     <h1>
         <span class="fa fa-space-shuttle"></span>

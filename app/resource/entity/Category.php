@@ -6,6 +6,14 @@
 	use System\Orm\Entity\Field;
 	use System\Orm\Entity\ForeignKey;
 
+	/**
+	 * @property string description
+	 * @property string logo
+	 * @property \Orm\Entity\Enigma[]
+	 * @property integer id
+	 * @property string title
+	 */
+
 	class Category extends Entity{
 		public function tableDefinition(){
 			$this->name('category');
@@ -26,7 +34,7 @@
 			$this->field('logo')
 				->type(Field::STRING)
 				->size(128)
-				->defaultValue('web/app/image/category/default.png');
+				->defaultValue('web/app/img/category/default.png');
 			$this->field('enigmas')
 				->foreign([
 					'type' => ForeignKey::ONE_TO_MANY,

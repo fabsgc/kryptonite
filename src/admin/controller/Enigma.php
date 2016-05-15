@@ -8,18 +8,25 @@
 	use System\Template\Template;
 
 	class Enigma extends Controller{
-		public function actionNew($id, \Orm\Entity\Enigma $enigma){
+		public function actionNew($id){
+			/** @var \Orm\Entity\Category $category */
 			$category = Category::find()
 				->where('Category.id = :id')
 				->vars('id', $id)
-				->fetch();
+				->fetch()->first();
 
-			if($category->count() == 1){
+			if($category != null){
+				$enigmas = \Orm\Entity\Enigma::find()
+					->vars('category', $id)
+					->where('Enigma.category = :category')
+					->fetch();
+
 				return (new Template('enigma/new', 'admin-enigma-new'))
 					->assign('title', 'Nouvelle énigme')
-					->assign('filAriane', ['Enigmes', $category->first()->title, 'Nouvelle énigme'])
-					->assign('category', $category->first())
-					->assign('request', $enigma)
+					->assign('filAriane', ['Enigmes', $category->title, 'Nouvelle énigme'])
+					->assign('category', $category)
+					->assign('enigmas', $enigmas)
+					->assign('request', new \Orm\Entity\Enigma())
 					->show();
 			}
 			else{
@@ -28,12 +35,20 @@
 		}
 
 		public function actionNewSave($id, \Orm\Entity\Enigma $enigma){
+			var_dump($enigma);
+
+			/** @var \Orm\Entity\Category $category */
 			$category = Category::find()
 				->where('Category.id = :id')
 				->vars('id', $id)
-				->fetch();
+				->fetch()->first();
 
-			if($category->count() == 1){
+			if($category != null){
+				$enigmas = \Orm\Entity\Enigma::find()
+					->vars('category', $id)
+					->where('Enigma.category = :category')
+					->fetch();
+
 				if($enigma->sent() && $enigma->valid()){
 					$enigma->insert();
 					Response::getInstance()->header('Location: '. $this->getUrl('admin.category.see', [$id]));
@@ -42,8 +57,9 @@
 				else{
 					return (new Template('enigma/new', 'admin-enigma-new'))
 						->assign('title', 'Nouvelle énigme')
-						->assign('filAriane', ['Enigmes', $category->first()->title, 'Nouvelle énigme'])
-						->assign('category', $category->first())
+						->assign('filAriane', ['Enigmes', $category->title, 'Nouvelle énigme'])
+						->assign('category', $category)
+						->assign('enigmas', $enigmas)
 						->assign('request', $enigma)
 						->show();
 				}
@@ -53,18 +69,26 @@
 			}
 		}
 
-		public function actionEdit($id, \Orm\Entity\Enigma $enigma){
-			$enigm = \Orm\Entity\Enigma::find()
+		public function actionEdit($id){
+			/** @var \Orm\Entity\Enigma $enigma */
+			$enigma = \Orm\Entity\Enigma::find()
 				->where('Enigma.id = :id')
 				->vars('id', $id)
-				->fetch();
+				->fetch()->first();
 
-			if($enigm->count() > 0){
+			if($enigma != null){
+				$enigmas = \Orm\Entity\Enigma::find()
+					->vars('id', $enigma->id)
+					->vars('category', $enigma->category->id)
+					->where('Enigma.category = :category AND Enigma.id != :id')
+					->fetch();
+
 				return (new Template('enigma/edit', 'admin-enigma-edit'))
 					->assign('title', 'Editer une énigme')
-					->assign('filAriane', ['Enigmes', $enigm->first()->category->title, 'Editer une énigme'])
-					->assign('category', $enigm->first()->category)
-					->assign('request', $enigm->first())
+					->assign('filAriane', ['Enigmes', $enigma->category->title, 'Editer une énigme'])
+					->assign('category', $enigma->category)
+					->assign('enigmas', $enigmas)
+					->assign('request', $enigma)
 					->show();
 			}
 			else{
@@ -73,14 +97,19 @@
 		}
 
 		public function actionEditSave($id, \Orm\Entity\Enigma $enigma){
-			//print_r($enigma->category);
-
+			/** @var \Orm\Entity\Enigma $enigma */
 			$enigm = \Orm\Entity\Enigma::find()
 				->where('Enigma.id = :id')
 				->vars('id', $id)
-				->fetch();
+				->fetch()->first();
 
-			if($enigm->count() > 0){
+			if($enigm != null){
+				$enigmas = \Orm\Entity\Enigma::find()
+					->vars('id', $enigma->id)
+					->vars('category', $enigma->category->id)
+					->where('Enigma.category = :category AND Enigma.id != :id')
+					->fetch();
+
 				if($enigma->sent()){
 					try{
 						$enigma->update();
@@ -89,14 +118,15 @@
 						Response::getInstance()->status(500);
 					}
 
-					Response::getInstance()->header('Location: '. $this->getUrl('admin.category.see', [$enigm->first()->category->id]));
+					Response::getInstance()->header('Location: '. $this->getUrl('admin.category.see', [$enigm->category->id]));
 					$_SESSION['flash'] = 'L\'énigme a bien été éditée';
 				}
 				else{
 					return (new Template('enigma/edit', 'admin-enigma-edit'))
 						->assign('title', 'Editer une énigme')
-						->assign('filAriane', ['Enigmes', $enigm->first()->category->title, 'Editer une énigme'])
-						->assign('category', $enigm->first()->category)
+						->assign('filAriane', ['Enigmes', $enigm->category->title, 'Editer une énigme'])
+						->assign('category', $enigm->category)
+						->assign('enigmas', $enigmas)
 						->assign('request', $enigma)
 						->show();
 				}
@@ -107,14 +137,15 @@
 		}
 
 		public function actionDelete($id){
+			/** @var \Orm\Entity\Enigma $enigma */
 			$enigma = \Orm\Entity\Enigma::find()
 				->where('Enigma.id = :id')
 				->vars('id', $id)
-				->fetch();
+				->fetch()->first();
 
-			if($enigma->count() > 0){
-				$enigma->first()->delete();
-				Response::getInstance()->header('Location: '. $this->getUrl('admin.category.see', [$enigma->first()->category->id]));
+			if($enigma != null){
+				$enigma->delete();
+				Response::getInstance()->header('Location: '. $this->getUrl('admin.category.see', [$enigma->category->id]));
 				$_SESSION['flash'] = 'L\'énigme a bien été supprimée';
 			}
 			else{

@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <div class="home-category">
     <ul>
         <li>
@@ -17,6 +17,12 @@
             <a href="{{url:admin.category.default}}">
                 <i class="fa fa-university"></i>
                 <span class="title">Enigmes</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{url:admin.success.default}}">
+                <i class="fa fa-gamepad"></i>
+                <span class="title">Badges</span>
             </a>
         </li>
         <li>

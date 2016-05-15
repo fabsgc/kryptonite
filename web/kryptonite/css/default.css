@@ -176,8 +176,7 @@ footer .info a{
 #main{
     min-height: 300px;
     width: 900px;
-    margin: auto;
-    margin-top: 25px;
+    margin: 25px auto auto;
 }
 
 #main .title-index{
@@ -218,7 +217,6 @@ footer .info a{
 
 #main .page{
     background-color: white;
-    min-height: 450px;
     margin: auto;
     padding:30px;
     font-family: Calibri, serif;
@@ -366,98 +364,6 @@ footer .info a{
     margin: 0 0 10px 0;
     display: inline-block;
     border-bottom: 2px solid white;
-}
-
-/* LISTE ENIGMES */
-
-.enigme-list{
-    width: 250px;
-    height: 275px;
-    float: left;
-    margin: 0 65px 50px 0;
-}
-
-.enigme-list:nth-child(3n){
-    margin-right: 0;
-}
-
-.enigme-list .content {
-    width: 100%;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-}
-
-.enigme-list .content .title{
-    font-size: 23px;
-    text-align: center;
-    padding-bottom: 10px;
-    color: white;
-}
-
-.enigme-list .content .picture img{
-    width: 100%;
-}
-
-.stack { position: relative; z-index: 10; }
-.stack:before, .stack:after {
-    content: "";
-    border-radius: 3px;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.3s all ease-out;
-    -moz-transition: 0.3s all ease-out;
-    transition: 0.3s all ease-out;
-}
-.stack:before { top: 4px; z-index: -10; }
-.stack:after { top: 8px; z-index: -20; }
-.stack.twisted:before {
-    -webkit-transform: rotate(4deg);
-    -moz-transform: rotate(4deg);
-    transform: rotate(4deg);
-}
-.stack.twisted:after {
-    -webkit-transform: rotate(-4deg);
-    -moz-transform: rotate(-4deg);
-    transform: rotate(-4deg);
-}
-
-.enigme-list:nth-child(4n+1) .content,
-.stack:nth-child(4n+1):before,
-.stack:nth-child(4n+1):after{
-    border: 10px solid #8bbdb2;
-    background-color: #8bbdb2;
-}
-
-.enigme-list:nth-child(4n+2) .content,
-.stack:nth-child(4n+2):before,
-.stack:nth-child(4n+2):after{
-    border: 10px solid #f06060;
-    background-color: #f06060;
-}
-
-.enigme-list:nth-child(4n+3) .content,
-.stack:nth-child(4n+3):before,
-.stack:nth-child(4n+3):after{
-    border: 10px solid #f3b562;
-    background-color: #f3b562;
-}
-
-.enigme-list:nth-child(4n+4) .content,
-.stack:nth-child(4n+4):before,
-.stack:nth-child(4n+4):after{
-    border: 10px solid #baddf0;
-    background-color: #baddf0;
 }
 
 /* ############# ENIGME */
@@ -686,12 +592,12 @@ footer .info a{
     background-color: #697fb0;
 }
 
-.main-home .home-tabs .tab-25{
-    width: 25%;
+.main-home .home-tabs .tab-20{
+    width: 20%;
 }
 
-.main-home .home-tabs .tab-33{
-    width: 33%;
+.main-home .home-tabs .tab-25{
+    width: 35%;
 }
 
 .main-home .home-content{
@@ -808,10 +714,14 @@ a.right{
 /* #################### ENIGME LISTE */
 
 .enigme-list{
-    width: 250px;
+    width: 240px;
     height: 275px;
     float: left;
-    margin: 0 65px 50px 0;
+    margin: 0 58px 50px 0;
+}
+
+.enigme-list a{
+    text-decoration: none;
 }
 
 .enigme-list:nth-child(3n){
@@ -895,4 +805,8 @@ a.right{
 .stack:nth-child(4n+4):after{
     border: 10px solid #baddf0;
     background-color: #baddf0;
+}
+
+.alert{
+    margin-bottom: 10px!important;
 }

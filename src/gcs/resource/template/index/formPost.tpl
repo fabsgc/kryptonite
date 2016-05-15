@@ -1,4 +1,4 @@
-<gc:extends file="main"/>
+{gc:extends file="main"/}
 <style>
   label{
     display:inline-block;
@@ -27,11 +27,3 @@
 	<label>Fichier </label><input type="file" name="post.file" /><br /><br />
 	<input type="submit" id="submit" value="envoyer"/><br />
 </form>
-<p>
-<gc:if condition="isset($post)">
-    <?php var_dump($post->errors()); ?>
-</gc:if>
-<gc:if condition="isset($post)">
-	<?php //print_r($post->fields()); ?>
-</gc:if>
-</p>
