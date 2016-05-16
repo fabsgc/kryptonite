@@ -3,7 +3,7 @@
 <div class="standalone-form">
     <form method="post" action="{{url:kryptonite.user.login}}">
         <div class="line">
-            <gc:call template="displayErrorsForm($form->errors(), 'username')"/>
+            {gc:call template="displayErrorsForm($form->errors(), 'username')"/}
             <i class="fa fa-user"></i>
             <input type="text" name="username" placeholder="Nom d'utilisateur" value="{$username}"/>
         </div>

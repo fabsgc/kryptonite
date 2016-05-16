@@ -8,8 +8,8 @@ $( document ).ready(function() {
 
 function height(){
 	var height = document.getElementById('main').offsetHeight + document.getElementsByTagName('header')[0].offsetHeight + document.getElementsByTagName('footer')[0].offsetHeight;
-
-	if(window.innerHeight >  height)
+	
+	if(window.innerHeight >  height + 49)
 		document.getElementById('sub-main').style.height = window.innerHeight - document.getElementsByTagName('header')[0].offsetHeight - document.getElementById('main').offsetHeight - document.getElementsByTagName('footer')[0].offsetHeight - 25 + "px";
 	else
 		document.getElementById('sub-main').style.height = "0px";

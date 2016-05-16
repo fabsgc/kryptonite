@@ -48,13 +48,6 @@
 					'reference' => ['Enigma', 'id'],
 					'join' => Builder::JOIN_LEFT
 				]);
-			$this->field('suscribe')
-				->type(Field::INT)
-				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
-					'reference' => ['Offer', 'id'],
-					'join' => Builder::JOIN_LEFT
-				]);
 			$this->field('token')
 				->unique(true)
 				->type(Field::STRING)

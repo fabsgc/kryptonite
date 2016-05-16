@@ -14,7 +14,14 @@
 					<img src="/{$student->avatar}"/>
 				</div>
 				<div class="description">
-					<span>{$student->username}</span>
+					<span>
+					    {$student->username}
+					    {gc:if condition="$student->suscribe_end < time()"}
+					        (Pas d'abonnement)
+					    {gc:else/}
+					        ({{php: echo dateFormat($student->suscribe_end); }})
+					    {/gc:if}
+					</span>
 					<div class="go">
 						<a href="{{url:kryptonite.student.delete:$student->id}}">
 							<span class="fa fa-times"></span>

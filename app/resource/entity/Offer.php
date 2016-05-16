@@ -28,7 +28,7 @@
 				->size(64)
 				->beNull(false);
 			$this->field('price')
-				->type(Field::INT)
+				->type(Field::FLOAT)
 				->beNull(false);
 			$this->field('duration')
 				->type(Field::INT)

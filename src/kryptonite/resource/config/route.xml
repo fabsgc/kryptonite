@@ -13,9 +13,9 @@
 			<route name="account" url="/user/account(/*)" action="account" logged="true" method="get"/> <!-- fait -->
 			<route name="accountSave" url="/user/account(/*)" action="accountSave" logged="true" method="put"/> <!-- fait -->
 			<route name="suscribe" url="/user/suscribe(/*)" action="suscribe" logged="true" method="get"/>
-			<route name="suscribeSave" url="/user/suscribe(/*)" action="suscribeSave" logged="true" method="put"/>
+			<route name="suscribeSave" url="/user/suscribe(/*)" action="suscribeSave" logged="true" method="post"/>
 			<route name="suscribeStudent" url="/user/suscribe/([0-9]+)(/*)" action="suscribe" logged="true" vars="id" method="get"/>
-			<route name="suscribeStudentSave" url="/user/suscribe/([0-9]+)(/*)" action="suscribeSave" logged="true" vars="id" method="put"/>
+			<route name="suscribeStudentSave" url="/user/suscribe/([0-9]+)(/*)" action="suscribeSave" logged="true" vars="id" method="post"/>
 			<route name="login" url="/user/sign-in(/*)" action="login" method="get" logged="false"/> <!-- fait -->
 			<route name="loginSave" url="/user/sign-in(/*)" action="loginSave" method="post" logged="false"/> <!-- fait -->
 			<route name="register" url="/user/sign-up(/*)" action="register" method="get" logged="false"/> <!-- fait -->

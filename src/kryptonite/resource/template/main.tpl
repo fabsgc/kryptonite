@@ -5,7 +5,7 @@
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 		<title>{$title} - Kryptonite</title>
 		<link rel="icon" type="image/png" href="/{{path:IMAGE:app}}icon.png" />
-		{gc:asset type="css" files="web/kryptonite/css/default.css,web/app/css/default.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/}
+		{gc:asset type="css" files="web/app/css/default.css,web/kryptonite/css/default.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/}
 		<script type="text/javascript" src="/{{path:JS:app}}jquery-1.11.2.min.js"></script>
 	</head>
 	<body>

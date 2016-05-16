@@ -429,26 +429,26 @@ footer .info a{
 .standalone-form .line input[type="password"],
 .standalone-form .line input[type="text"],
 .standalone-form .line select{
-    box-sizing: border-box;
-    border: none;
-    width: 250px;
-    height: 50px;
-    padding: 0 15px;
-    outline: none;
-    line-height: 50px;
+    box-sizing: border-box!important;
+    border: none!important;
+    width: 250px!important;
+    height: 50px!important;
+    padding: 0 15px!important;
+    outline: none!important;
+    line-height: 50px!important;
 }
 
 .standalone-form .line select{
-    font-size: 17px;
-    color: #A9A9A9;
+    font-size: 17px!important;
+    color: #A9A9A9!important;
 }
 
 .standalone-form .line input[type="date"]{
-    box-sizing: border-box;
-    border: none;
-    width: 250px;
-    padding: 13px 15px;
-    outline: none;
+    box-sizing: border-box!important;
+    border: none!important;
+    width: 250px!important;
+    padding: 13px 15px!important;
+    outline: none!important;
 }
 
 .standalone-form .line a{
@@ -458,28 +458,32 @@ footer .info a{
 }
 
 .standalone-form .line input[type="submit"]{
-    background-color: #8bbdb2;
-    border-bottom: 3px solid #669C90;
-    width: 100%;
-    height: 50px;
-    color: white;
-    line-height: 50px;
-    font-size: 20px;
-    cursor: pointer;
-    outline: none;
-    transition-duration:0.15s;
+    background-color: #8bbdb2!important;
+    border-bottom: 3px solid #669C90!important;
+    width: 100%!important;
+    height: 50px!important;
+    color: white!important;
+    line-height: 50px!important;
+    font-size: 20px!important;
+    cursor: pointer!important;
+    outline: none!important;
+    transition-duration:0.15s!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    margin: 10px 0 0 0!important;
+    left:0!important;
 }
 
 .standalone-form .line input[type="submit"]:hover{
-    background-color: #97CEC2;
-    border-bottom: 3px solid #81B5AA;
+    background-color: #97CEC2!important;
+    border-bottom: 3px solid #81B5AA!important;
 }
 
 .standalone-form .line input[type="email"].error,
 .standalone-form .line input[type="password"].error,
 .standalone-form .line input[type="text"].error,
 .standalone-form .line input[type="date"].error{
-    background-color: #FFD5D5;
+    background-color: #FFD5D5!important;
 }
 
 .standalone-form .message{
@@ -504,6 +508,7 @@ footer .info a{
     padding-bottom: 10px!important;
     max-width: 900px;
     margin: auto!important;
+    line-height: 22px;
 }
 
 /* ################ HOME */
@@ -809,4 +814,108 @@ a.right{
 
 .alert{
     margin-bottom: 10px!important;
+}
+
+/* ################ SUSCRIBE ############## */
+
+.suscribe-list{
+    width: 760px;
+    margin:auto;
+}
+
+.suscribe {
+    width: 240px;
+    float: left;
+    margin: 0 20px 0px 0;
+    border: 1px solid #797f7b;
+}
+
+.suscribe:last-child{
+    margin: 0!important;
+}
+
+.suscribe .title{
+    background-color: #8bbdb2;
+    padding: 10px;
+    height: 45px;
+    line-height: 25px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid #65A395;
+}
+
+.suscribe .interest{
+    padding: 5px;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.suscribe .price{
+    background-color: #8bbdb2;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    border-bottom: 1px solid #65A395;
+}
+
+.suscribe .price em{
+    font-size: 0.5em;
+}
+
+.suscribe .buy{
+    background-color: #465674;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.suscribe .buy:hover{
+    background-color: #5c6f93;
+    transition-duration: 0.15s;
+}
+
+.hidden{
+    display: none;
+}
+
+.suscribe-buy{
+    margin-top: 30px;
+    background-color: #8bbdb2;
+    border: 1px solid #797f7b;
+    color: white;
+}
+
+.suscribe-buy .price-total{
+    background-color: #465674;
+    padding: 10px;
+    font-size: 25px;
+    line-height: 25px;
+    color: white;
+}
+
+.suscribe-buy form{
+    padding: 10px;
+}
+
+.suscribe-buy form input[type="text"].big{
+    width: 100%!important;
+}
+
+.suscribe-buy form input[type="text"].small{
+    width: 49.6%!important;
+}
+
+.suscribe-buy form input[type="submit"]{
+    background-color: #465674!important;
+}
+
+.suscribe-buy form input[type="submit"]:hover{
+    background-color: #5c6f93!important;
 }

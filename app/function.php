@@ -13,3 +13,7 @@ function slugify($text){
 
 	return $text;
 }
+
+function dateFormat($time){
+	return date('d/m/Y', $time);
+}

@@ -4,7 +4,10 @@
 	use Controller\Request\Kryptonite\AccountRequest;
 	use Controller\Request\Kryptonite\SuscribeRequest;
 	use Helper\Mail\Mail;
+	use Orm\Entity\Offer;
+	use Orm\Entity\Payment;
 	use Orm\Entity\SuccessUser;
+	use System\Orm\Builder;
 	use System\Response\Response;
 	use System\Template\Template;
 	use System\Controller\Controller;
@@ -13,7 +16,7 @@
 
 	class User extends Controller{
 		public function actionDefault(){
-			return (new Template('user/default', 'kryptonite-user-default'))
+			return (new Template('user/homeCurrent', 'kryptonite-user-default'))
 				->assign('title', 'Accueil')
 				->show();
 		}
@@ -86,24 +89,101 @@
 			}
 		}
 
-		public function actionSuscribe(SuscribeRequest $request, $id, $offer, $bank, $cvc){
-			return (new Template('user/suscribe', 'kryptonite-user-suscribe'))
-				->assign('title', 'Abonnements')
-				->assign('request', $request)
-				->assign('offer', $offer)
-				->assign('bank', $bank)
-				->assign('cvc', $cvc)
-				->show();
+		public function actionSuscribe(SuscribeRequest $request, $id, $offer, $bank, $expiration, $cvc){
+			if($id == null || $_SESSION['kryptonite']['role'] == 'TEACHER') {
+				$id = $_SESSION['kryptonite']['id'];
+
+				$students = \Orm\Entity\User::count()->vars('id', $_SESSION['kryptonite']['id'])->where('User.parent = :id')->fetch();
+				$offers = Offer::find()->fetch();
+
+				return (new Template('user/suscribe', 'kryptonite-user-suscribe'))
+					->assign('students', $students)
+					->assign('offers', $offers)
+					->assign('title', 'Abonnements')
+					->assign('request', $request)
+					->assign('offer', $offer)
+					->assign('bank', $bank)
+					->assign('bank', $expiration)
+					->assign('cvc', $cvc)
+					->assign('id', $id)
+					->show();
+			}
+			else{
+				Response::getInstance()->status(404);
+			}
 		}
 
-		public function actionSuscribeSave(SuscribeRequest $request, $id, $offer, $bank, $cvc){
-			return (new Template('user/suscribe', 'kryptonite-user-suscribe'))
-				->assign('title', 'Abonnements')
-				->assign('request', $request)
-				->assign('offer', $offer)
-				->assign('bank', $bank)
-				->assign('cvc', $cvc)
-				->show();
+		public function actionSuscribeSave(SuscribeRequest $request, $id, $offer, $bank, $expiration, $cvc){
+			if($id == null || $_SESSION['kryptonite']['role'] == 'TEACHER') {
+				$students = \Orm\Entity\User::count()->vars('id', $_SESSION['kryptonite']['id'])->where('User.parent = :id')->fetch();
+				$offers = Offer::find()->fetch();
+
+				if($request->sent() && $request->valid()){
+					/** @var \Orm\Entity\Offer $offerData */
+					$offerData = Offer::find()->vars('id', $offer)->where('Offer.id = :id')->fetch(Builder::RETURN_ENTITY);
+					$studentsData = \Orm\Entity\User::find()->vars('id', $_SESSION['kryptonite']['id'])->where('User.parent = :id')->fetch();
+					/** @var \Orm\Entity\User $user */
+					$user = \Orm\Entity\User::find()->vars('id', $_SESSION['kryptonite']['id'])->where('User.id = :id')->fetch(Builder::RETURN_ENTITY);
+					$price;
+
+					if($id == null){
+						$price = round($offerData->price * 1.2,2);
+
+						if($user->suscribe_end < time()){
+							$user->suscribe_end = time() + $offerData->duration;
+						}
+						else{
+							$user->suscribe_end += $offerData->duration;
+						}
+
+						$user->update();
+
+						Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.user.default'));
+						$_SESSION['flash'] = 'Vous vous êtes bien abonné(e) pour une durée de '.$offerData->title.' ';
+					}
+					else{
+						$price = round($offerData->price * 1.2 * $students,2);
+
+						foreach ($studentsData as $studentData){
+							/** @var \Orm\Entity\User $studentData */
+							if($studentData->suscribe_end < time()){
+								$studentData->suscribe_end = time() + $offerData->duration;
+							}
+							else{
+								$studentData->suscribe_end += $offerData->duration;
+							}
+
+							$studentData->update();
+
+							Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.user.home-students'));
+							$_SESSION['flash'] = 'Vous avez bien abonné vos élèves pour une durée de '.$offerData->title.' ';
+						}
+					}
+
+					$payment = new Payment();
+					$payment->user = $user;
+					$payment->reference = 'reference';
+					$payment->value = $price;
+					$payment->time = time();
+					$payment->insert();
+				}
+				else{
+					return (new Template('user/suscribe', 'kryptonite-user-suscribe'))
+						->assign('students', $students)
+						->assign('offers', $offers)
+						->assign('title', 'Abonnements')
+						->assign('request', $request)
+						->assign('offer', $offer)
+						->assign('bank', $bank)
+						->assign('bank', $expiration)
+						->assign('cvc', $cvc)
+						->assign('id', $id)
+						->show();
+				}
+			}
+			else{
+				Response::getInstance()->status(404);
+			}
 		}
 
 		public function actionLogin(LoginRequest $request, $username){
@@ -133,6 +213,7 @@
 				$_SESSION['kryptonite']['email'] = $user->email;
 				$_SESSION['kryptonite']['coins'] = $user->coins;
 				$_SESSION['kryptonite']['avatar'] = $user->avatar;
+				$_SESSION['kryptonite']['suscribe_end'] = $user->suscribe_end;
 
 				Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.index.default'));
 				$_SESSION['flash'] = 'Vous êtes connecté(e)';
@@ -153,7 +234,7 @@
 				->assign('username', $username)
 				->assign('email', $email)
 				->assign('role', $role)
-				->assign('roles', ['STUDENT' => 'Elève', 'TEACHER' => 'Professeur', 'INDIVIDUAL' => 'Particulier'])
+				->assign('roles', ['INDIVIDUAL' => 'Particulier', 'TEACHER' => 'Professeur'])
 				->show();
 		}
 
@@ -189,7 +270,7 @@
 					->assign('username', $username)
 					->assign('email', $email)
 					->assign('role', $role)
-					->assign('roles', ['STUDENT' => 'Elève', 'TEACHER' => 'Professeur', 'INDIVIDUAL' => 'Particulier'])
+					->assign('roles', ['INDIVIDUAL' => 'Particulier', 'TEACHER' => 'Professeur'])
 					->show();
 			}
 		}
