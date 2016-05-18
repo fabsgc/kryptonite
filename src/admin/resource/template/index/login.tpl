@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title>{$title} - MazeMind</title>
 		<link rel="icon" type="image/png" href="web/app/image/icon.png" />
-		<gc:asset type="css" files="web/admin/css/login.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/>
+		{gc:asset type="css" files="web/admin/css/login.css,web/app/file/font-awesome/css/font-awesome.min.css" cache="5"/}
 		<script type="text/javascript" src="/web/app/js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="/web/admin/js/login.js"></script>
 	</head>
