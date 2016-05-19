@@ -172,6 +172,9 @@ define('DISPLAY_ERROR_ERROR', true);
 // enable asset manager
 define('ASSET_MANAGER', true);
 
+// asset manager cache
+define('ASSET_MANAGER_CACHE', 0);
+
 // enable config cache
 define('CACHE_CONFIG', false);
 
@@ -180,6 +183,9 @@ define('CACHE_ENABLED', true);
 
 //send mail
 define('MAIL', false);
+
+//the app uses HTTPS ?
+define('HTTPS', false);
 
 // don't modify
 define('HTML_WEB_PATH', FOLDER.'/'.WEB_PATH);
