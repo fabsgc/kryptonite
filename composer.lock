@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "40987057cbaccbd86505c705552f623d",
+    "content-hash": "254f8d3b42c395a881f7f07843b2122d",
     "packages": [
         {
             "name": "gcsystem/framework",
@@ -12,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabsgc/framework.git",
-                "reference": "c3d3afd99f99c973146b92451a940cc624fee142"
+                "reference": "abb2a11300376edfbb8a174f50c52e015b12186a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/framework/zipball/c3d3afd99f99c973146b92451a940cc624fee142",
-                "reference": "c3d3afd99f99c973146b92451a940cc624fee142",
+                "url": "https://api.github.com/repos/fabsgc/framework/zipball/abb2a11300376edfbb8a174f50c52e015b12186a",
+                "reference": "abb2a11300376edfbb8a174f50c52e015b12186a",
                 "shasum": ""
             },
             "require": {
@@ -38,7 +39,7 @@
                 "framework",
                 "gcsystem"
             ],
-            "time": "2016-04-17 23:24:56"
+            "time": "2016-05-16 20:40:14"
         },
         {
             "name": "gcsystem/scaffolding",
@@ -46,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabsgc/scaffolding.git",
-                "reference": "bdfb86cc9b5bf674e11ede56fcb6540fa873f51c"
+                "reference": "07ce2dba2b5b1d1f3d012744e0119f8f148b6ae6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/bdfb86cc9b5bf674e11ede56fcb6540fa873f51c",
-                "reference": "bdfb86cc9b5bf674e11ede56fcb6540fa873f51c",
+                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/07ce2dba2b5b1d1f3d012744e0119f8f148b6ae6",
+                "reference": "07ce2dba2b5b1d1f3d012744e0119f8f148b6ae6",
                 "shasum": ""
             },
             "require": {
@@ -77,7 +78,7 @@
                 "framework",
                 "gcsystem"
             ],
-            "time": "2016-04-11 18:35:57"
+            "time": "2016-05-20 22:08:13"
         }
     ],
     "packages-dev": [],
