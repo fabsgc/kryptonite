@@ -48,6 +48,10 @@
 				->type(Field::STRING)
 				->size(128)
 				->defaultValue('web/app/img/category/default.png');
+			$this->field('first')
+				->type(Field::INT)
+				->beNull(false)
+				->defaultValue('0');
 			$this->field('category')
 				->type(Field::INT)
 				->beNull(false)

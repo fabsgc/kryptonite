@@ -10,6 +10,7 @@
 	 * @property integer id
 	 * @property integer user
 	 * @property integer enigma
+	 * @property integer finished
 	 * @package Orm\Entity
 	*/
 

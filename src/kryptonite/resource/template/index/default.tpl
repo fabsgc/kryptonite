@@ -10,8 +10,8 @@
         <div class="corner-1"></div>
         <div class="corner-2"></div>
         <div class="inner">
-            <h3>Titre 1</h3>
-            <span>Description numéro 1</span>
+            <!--<h3>Titre 1</h3>
+            <span>Description numéro 1</span>-->
         </div>
         <a href="#"></a>
     </div>
@@ -29,8 +29,8 @@
         <div class="corner-1"></div>
         <div class="corner-2"></div>
         <div class="inner">
-            <h3>Titre 2</h3>
-            <span>Description numéro 2</span>
+            <!--<h3>Titre 2</h3>
+            <span>Description numéro 2</span>-->
         </div>
         <a href="#"></a>
     </div>
@@ -48,8 +48,8 @@
         <div class="corner-1"></div>
         <div class="corner-2"></div>
         <div class="inner">
-            <h3>Titre 3</h3>
-            <span>Description numéro 3</span>
+            <!--<h3>Titre 3</h3>
+            <span>Description numéro 3</span>-->
         </div>
         <a href="#"></a>
     </div>
@@ -58,8 +58,8 @@
         <div class="corner-1"></div>
         <div class="corner-2"></div>
         <div class="inner">
-            <h3>Titre 4</h3>
-            <span>Description numéro 4</span>
+            <!--<h3>Titre 4</h3>
+            <span>Description numéro 4</span>-->
         </div>
         <a href="#"></a>
     </div>

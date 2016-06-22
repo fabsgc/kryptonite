@@ -76,19 +76,20 @@ header a:hover{
 
 header .left{
     float: left;
-    width: 250px;
-    height: 80px;
-    line-height: 80px;
-    font-size: 30px;
+    width: 500px;
+    height: 85px;
+    line-height: 85px;
+    font-size: 35px;
 }
 header .left h1{
     margin: 0;
 }
-header .left h1 .fa{
-    font-size: 45px;
+header .left img{
+    float: left;
+    max-height: 70px;
     position: relative;
     top: 5px;
-    margin: 0 10px 0 15px;
+    padding: 0 15px 0 15px;
 }
 
 header .middle{
@@ -918,4 +919,29 @@ a.right{
 
 .suscribe-buy form input[type="submit"]:hover{
     background-color: #5c6f93!important;
+}
+
+.alert .close {
+    float:right;
+    cursor:pointer;
+    position:relative;
+    left:22px;
+    top: 4px !important;;
+    font-weight:bold;
+}
+
+.enigme h4{
+    color: #8bbdb2;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.enigme ul{
+    margin-left: 15px;
+    list-style-type: disc;
+}
+
+.enigme ol{
+    margin-left: 15px;
+    list-style-type: decimal;
 }

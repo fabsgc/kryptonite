@@ -11,7 +11,7 @@
 	<body id="body">
 		<header class="default">
 			<div id="header-left">
-				<i class="fa fa-fire"></i> MazeMind
+				<img src="/{{path:IMAGE:app}}logo.png"/>
 			</div>
 			<div id="header-right">
 				<div class="right-account">

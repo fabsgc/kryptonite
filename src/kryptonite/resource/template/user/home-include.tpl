@@ -11,7 +11,7 @@
 }}
 <div class="home-progress">
 	{{php:
-		$percent = round($enigmas->count() / $enigmasTotal * 100, 1);
+		$percent = round(($enigmas->count()) / ($enigmasTotal + 13) * 100, 1);
 	}}
 	<div id="progress">
 		<div id="progress-bar" style="width:{$percent}%;">

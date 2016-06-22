@@ -35,8 +35,6 @@
 		}
 
 		public function actionNewSave($id, \Orm\Entity\Enigma $enigma){
-			var_dump($enigma);
-
 			/** @var \Orm\Entity\Category $category */
 			$category = Category::find()
 				->where('Category.id = :id')
@@ -50,6 +48,7 @@
 					->fetch();
 
 				if($enigma->sent() && $enigma->valid()){
+					$enigma->description = html_entity_decode($enigma->description);
 					$enigma->insert();
 					Response::getInstance()->header('Location: '. $this->getUrl('admin.category.see', [$id]));
 					$_SESSION['flash'] = 'L\'énigme a bien été créée';
@@ -112,6 +111,7 @@
 
 				if($enigma->sent()){
 					try{
+						$enigma->description = htmlspecialchars_decode($enigma->description);
 						$enigma->update();
 					}
 					catch(MissingEntityException $e){

@@ -52,10 +52,15 @@ header #header-left{
     background-color: #7b94b7;
     text-align: center;
     font-size: 30px;
-    line-height: 60px;
     color: white;
     width: 200px;
     float: left;
+    height: 60px;
+}
+
+header #header-left img{
+    margin: auto;
+    max-height: 52px;
 }
 
 header #header-right{

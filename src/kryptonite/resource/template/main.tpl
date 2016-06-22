@@ -13,9 +13,9 @@
 			<header>
 				<div class="left">
 					<a href="/">
+					    <img src="/{{path:IMAGE:app}}logo.png"/>
 						<h1>
-							<i class="fa fa-fire">&nbsp;</i>
-							MazeMind
+							azeMind
 						</h1>
 					</a>
 				</div>
