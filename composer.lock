@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabsgc/scaffolding.git",
-                "reference": "07ce2dba2b5b1d1f3d012744e0119f8f148b6ae6"
+                "reference": "334911d8556f99c840be11aac083ac30cd330c53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/07ce2dba2b5b1d1f3d012744e0119f8f148b6ae6",
-                "reference": "07ce2dba2b5b1d1f3d012744e0119f8f148b6ae6",
+                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/334911d8556f99c840be11aac083ac30cd330c53",
+                "reference": "334911d8556f99c840be11aac083ac30cd330c53",
                 "shasum": ""
             },
             "require": {
@@ -78,7 +78,7 @@
                 "framework",
                 "gcsystem"
             ],
-            "time": "2016-05-20 22:08:13"
+            "time": "2016-05-20 23:00:49"
         }
     ],
     "packages-dev": [],
