@@ -197,6 +197,10 @@ footer .info a{
     margin: auto;
 }
 
+#main .start{
+  padding-bottom: 10px;
+}
+
 #main .start a{
     width: 175px;
     font-size: 22px;
