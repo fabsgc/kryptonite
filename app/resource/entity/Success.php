@@ -3,18 +3,16 @@
 
 	use System\Orm\Entity\Entity;
 	use System\Orm\Entity\Field;
-	use System\Orm\Entity\ForeignKey;
 
 	/**
 	 * Class Success
 	 * @property integer id
-	 * @property string title
-	 * @property string logo
+	 * @property string  title
+	 * @property string  logo
 	 * @package Orm\Entity
-	*/
-
-	class Success extends Entity{
-		public function tableDefinition(){
+	 */
+	class Success extends Entity {
+		public function tableDefinition() {
 			$this->name('success');
 			$this->form('form-success');
 			$this->field('id')
@@ -32,15 +30,12 @@
 				->beNull(false);
 		}
 
-        public function beforeInsert(){
+		public function beforeInsert() {
+		}
 
-        }
+		public function beforeUpdate() {
+		}
 
-        public function beforeUpdate(){
-
-        }
-
-        public function beforeDelete(){
-
-        }
+		public function beforeDelete() {
+		}
 	}

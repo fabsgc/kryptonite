@@ -7,14 +7,13 @@
 	/**
 	 * Class Upload
 	 * @property integer id
-	 * @property string name
-	 * @property string path
-	 * @property string extension
+	 * @property string  name
+	 * @property string  path
+	 * @property string  extension
 	 * @package Orm\Entity
 	 */
-
-	class Upload extends Entity{
-		public function tableDefinition(){
+	class Upload extends Entity {
+		public function tableDefinition() {
 			$this->name('upload');
 			$this->form('form-upload');
 			$this->field('id')

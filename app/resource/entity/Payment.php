@@ -7,16 +7,15 @@
 
 	/**
 	 * Class Payment
-	 * @property integer id
-	 * @property string reference
-	 * @property integer time
-	 * @property float value
+	 * @property integer          id
+	 * @property string           reference
+	 * @property integer          time
+	 * @property float            value
 	 * @property \Orm\Entity\User user
 	 * @package Orm\Entity
 	 */
-
-	class Payment extends Entity{
-		public function tableDefinition(){
+	class Payment extends Entity {
+		public function tableDefinition() {
 			$this->name('payment');
 			$this->form('form-payment');
 			$this->field('id')
@@ -34,13 +33,13 @@
 				->beNull(false);
 			$this->field('value')
 				->type(Field::FLOAT)
-				->precision(array('float'))
+				->precision(['float'])
 				->beNull(false);
 			$this->field('user')
 				->type(Field::INT)
 				->beNull(false)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['User', 'id']
 				]);
 		}

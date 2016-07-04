@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerUpload extends Model{
+	class ManagerUpload extends Model {
 	}

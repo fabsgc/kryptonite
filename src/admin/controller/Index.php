@@ -1,27 +1,27 @@
 <?php
 	namespace Admin;
 
+	use Controller\Request\Admin\LoginRequest;
 	use Orm\Entity\Manager;
 	use System\Controller\Controller;
-	use Controller\Request\Admin\LoginRequest;
 	use System\Template\Template;
 
-	class Index extends Controller{
-		public function actionDefault(){
+	class Index extends Controller {
+		public function actionDefault() {
 			return (new Template('index/default', 'admin-index-default'))
 				->assign('title', 'Accueil')
 				->assign('filAriane', [])
 				->show();
 		}
 
-		public function actionLogin(){
+		public function actionLogin() {
 			return (new Template('index/login', 'admin-index-login'))
 				->assign('title', 'Connexion')
 				->show();
 		}
 
-		public function actionLoginSave(LoginRequest $request, $username, $password){
-			if($request->sent() && $request->valid()){
+		public function actionLoginSave(LoginRequest $request, $username, $password) {
+			if ($request->sent() && $request->valid()) {
 				$manager = Manager::find()
 					->where("Manager.username = :username AND Manager.password = :password")
 					->vars([
@@ -44,7 +44,7 @@
 			return "0";
 		}
 
-		public function actionLogout(){
-			$_SESSION['admin'] = array();
+		public function actionLogout() {
+			$_SESSION['admin'] = [];
 		}
 	}

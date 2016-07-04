@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerStudent extends Model{
+	class ManagerStudent extends Model {
 	}

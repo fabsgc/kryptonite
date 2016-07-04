@@ -7,14 +7,13 @@
 	/**
 	 * Class Manager
 	 * @property integer id
-	 * @property string username
-	 * @property string password
-	 * @property string email
+	 * @property string  username
+	 * @property string  password
+	 * @property string  email
 	 * @package Orm\Entity
 	 */
-
-	class Manager extends Entity{
-		public function tableDefinition(){
+	class Manager extends Entity {
+		public function tableDefinition() {
 			$this->name('manager');
 			$this->form('form-manager');
 			$this->field('id')

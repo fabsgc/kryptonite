@@ -3,9 +3,10 @@
 
 	use System\Response\Response;
 
-	class Scaffolding extends \Scaffolding\Scaffolding{
-		public function init(){
-			if(ENVIRONMENT != 'development')
+	class Scaffolding extends \Scaffolding\Scaffolding {
+		public function init() {
+			if (ENVIRONMENT != 'development') {
 				Response::getInstance()->status(404);
+			}
 		}
 	}

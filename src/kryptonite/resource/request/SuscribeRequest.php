@@ -1,15 +1,14 @@
 <?php
 	namespace Controller\Request\Kryptonite;
 
-	use \System\Request\Form;
+	use System\Request\Form;
 
-	class SuscribeRequest extends Form{
-
-		public function init(){
+	class SuscribeRequest extends Form {
+		public function init() {
 			$this->form = 'form-suscribe';
 		}
 
-		public function post(){
+		public function post() {
 			$this->validation->text('bank', 'Numéro de carte')
 				->regex('#^[0-9]{16}$#', 'vous devez donner un numéro de carte valide');
 
@@ -21,10 +20,10 @@
 
 			$this->validation->text('offer', 'Offre')
 				->sql([
-					'query' => 'SELECT COUNT(*) FROM offer WHERE id = :value',
+					'query'      => 'SELECT COUNT(*) FROM offer WHERE id = :value',
 					'constraint' => '==',
-					'value' => 1,
-					'vars' => []
+					'value'      => 1,
+					'vars'       => []
 				], 'cette offre n\'est pas disponible');
 		}
 	}

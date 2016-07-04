@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fabsgc/framework.git",
-            "reference": "abb2a11300376edfbb8a174f50c52e015b12186a"
+            "reference": "5bc2f40f1f4678f21c80384526d4a8c840db8d63"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fabsgc/framework/zipball/abb2a11300376edfbb8a174f50c52e015b12186a",
-            "reference": "abb2a11300376edfbb8a174f50c52e015b12186a",
+            "url": "https://api.github.com/repos/fabsgc/framework/zipball/5bc2f40f1f4678f21c80384526d4a8c840db8d63",
+            "reference": "5bc2f40f1f4678f21c80384526d4a8c840db8d63",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.12"
         },
-        "time": "2016-05-16 20:40:14",
+        "time": "2016-07-04 21:16:56",
         "type": "project",
         "extra": {
             "branch-alias": {
@@ -42,18 +42,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fabsgc/scaffolding.git",
-            "reference": "334911d8556f99c840be11aac083ac30cd330c53"
+            "reference": "ded0a676d41d0ca3bcb0ad6db7b0c2cfb976bdf8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/334911d8556f99c840be11aac083ac30cd330c53",
-            "reference": "334911d8556f99c840be11aac083ac30cd330c53",
+            "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/ded0a676d41d0ca3bcb0ad6db7b0c2cfb976bdf8",
+            "reference": "ded0a676d41d0ca3bcb0ad6db7b0c2cfb976bdf8",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.12"
         },
-        "time": "2016-05-20 23:00:49",
+        "time": "2016-07-04 21:28:29",
         "type": "project",
         "extra": {
             "branch-alias": {
@@ -74,6 +74,182 @@
         "keywords": [
             "framework",
             "gcsystem"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-mbstring",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "8a6bdec191138e01c92ae026e5aacb7b3e66267d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/8a6bdec191138e01c92ae026e5aacb7b3e66267d",
+            "reference": "8a6bdec191138e01c92ae026e5aacb7b3e66267d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2016-06-29 14:58:48",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Mbstring\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for the Mbstring extension",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "mbstring",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/translation",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/translation.git",
+            "reference": "3c589e93013e2808758f61b02755afc113f3be44"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/translation/zipball/3c589e93013e2808758f61b02755afc113f3be44",
+            "reference": "3c589e93013e2808758f61b02755afc113f3be44",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "symfony/polyfill-mbstring": "~1.0"
+        },
+        "conflict": {
+            "symfony/config": "<2.8"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "~2.8|~3.0",
+            "symfony/intl": "~2.8|~3.0",
+            "symfony/yaml": "~2.8|~3.0"
+        },
+        "suggest": {
+            "psr/log": "To use logging capability in translator",
+            "symfony/config": "",
+            "symfony/yaml": ""
+        },
+        "time": "2016-06-29 05:43:10",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.2-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Translation\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Translation Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "nesbot/carbon",
+        "version": "1.21.0",
+        "version_normalized": "1.21.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/briannesbitt/Carbon.git",
+            "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
+            "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "symfony/translation": "~2.6|~3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2015-11-04 20:07:17",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Carbon\\": "src/Carbon/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Brian Nesbitt",
+                "email": "brian@nesbot.com",
+                "homepage": "http://nesbot.com"
+            }
+        ],
+        "description": "A simple API extension for DateTime.",
+        "homepage": "http://carbon.nesbot.com",
+        "keywords": [
+            "date",
+            "datetime",
+            "time"
         ]
     }
 ]

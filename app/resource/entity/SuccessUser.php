@@ -11,10 +11,9 @@
 	 * @property integer user
 	 * @property integer success
 	 * @package Orm\Entity
-	*/
-
-	class SuccessUser extends Entity{
-		public function tableDefinition(){
+	 */
+	class SuccessUser extends Entity {
+		public function tableDefinition() {
 			$this->name('success_user');
 			$this->form('form-success_user');
 			$this->field('id')
@@ -26,27 +25,24 @@
 				->type(Field::INT)
 				->beNull(false)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['User', 'id']
 				]);
 			$this->field('success')
 				->type(Field::INT)
 				->beNull(false)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['Success', 'id']
 				]);
 		}
 
-        public function beforeInsert(){
+		public function beforeInsert() {
+		}
 
-        }
+		public function beforeUpdate() {
+		}
 
-        public function beforeUpdate(){
-
-        }
-
-        public function beforeDelete(){
-
-        }
+		public function beforeDelete() {
+		}
 	}

@@ -3,7 +3,7 @@
 
 	use System\Model\Model;
 
-	class ManagerProfiler extends Model{
-		public function init(){
+	class ManagerProfiler extends Model {
+		public function init() {
 		}
 	}

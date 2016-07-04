@@ -5,9 +5,10 @@
 	use System\Controller\Controller;
 	use System\Response\Response;
 	use System\Template\Template;
+	use System\Url\Url;
 
-	class Category extends Controller{
-		public function actionBrowse(){
+	class Category extends Controller {
+		public function actionBrowse() {
 			$categories = \Orm\Entity\Category::find()->fetch();
 
 			return (new Template('category/default', 'kryptonite-category-default'))
@@ -16,7 +17,7 @@
 				->show();
 		}
 
-		public function actionCategory($id, $slug){
+		public function actionCategory($id, $slug) {
 			/** @var \Orm\Entity\Category $category */
 			$category = \Orm\Entity\Category::find()
 				->vars('id', $id)
@@ -24,11 +25,11 @@
 				->fetch()
 				->first();
 
-			if($category != null){
-				if($slug != slugify($category->title)){
-					Response::getInstance()->header('Location: '.$this->getUrl('kryptonite.category.category', [$category->id, slugify($category->title)]));
+			if ($category != null) {
+				if ($slug != slugify($category->title)) {
+					Response::getInstance()->header('Location: ' . Url::get('kryptonite.category.category', [$category->id, slugify($category->title)]));
 				}
-				else{
+				else {
 					$enigmas = Enigma::find()
 						->vars('id', $category->id)
 						->where('Enigma.category = :id')
@@ -41,7 +42,7 @@
 						->show();
 				}
 			}
-			else{
+			else {
 				Response::getInstance()->status(404);
 			}
 		}

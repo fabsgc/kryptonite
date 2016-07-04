@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerUser extends Model{
+	class ManagerUser extends Model {
 	}

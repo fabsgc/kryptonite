@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerPayment extends Model{
+	class ManagerPayment extends Model {
 	}

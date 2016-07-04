@@ -8,15 +8,14 @@
 
 	/**
 	 * Class Category
-	 * @property string description
-	 * @property string logo
+	 * @property string  description
+	 * @property string  logo
 	 * @property \Orm\Entity\Enigma[]
 	 * @property integer id
-	 * @property string title
+	 * @property string  title
 	 */
-
-	class Category extends Entity{
-		public function tableDefinition(){
+	class Category extends Entity {
+		public function tableDefinition() {
 			$this->name('category');
 			$this->form('form-category');
 			$this->field('id')
@@ -38,16 +37,15 @@
 				->defaultValue('web/app/img/category/default.png');
 			$this->field('enigmas')
 				->foreign([
-					'type' => ForeignKey::ONE_TO_MANY,
+					'type'      => ForeignKey::ONE_TO_MANY,
 					'reference' => ['Enigma', 'category'],
-					'current' => ['Category', 'id'],
-					'belong' => ForeignKey::COMPOSITION,
-					'join' => Builder::JOIN_LEFT
+					'current'   => ['Category', 'id'],
+					'belong'    => ForeignKey::COMPOSITION,
+					'join'      => Builder::JOIN_LEFT
 				]);
 		}
 
-		public function beforeInsert()
-		{
+		public function beforeInsert() {
 			$this->validation->text('title', 'titre')
 				->different('', 'Vous devez donner un titre à cette catégorie');
 
@@ -55,8 +53,7 @@
 				->different('', 'Vous devez donner une description à cette catégorie');
 		}
 
-		public function beforeUpdate()
-		{
+		public function beforeUpdate() {
 			$this->validation->text('title', 'titre')
 				->different('', 'Vous devez donner un titre à cette catégorie');
 

@@ -9,18 +9,17 @@
 	/**
 	 * Class Enigma
 	 * @package Orm\Entity
-	 * @property integer id
-	 * @property string title
-	 * @property string description
-	 * @property string answer
-	 * @property integer points
-	 * @property string logo
+	 * @property integer              id
+	 * @property string               title
+	 * @property string               description
+	 * @property string               answer
+	 * @property integer              points
+	 * @property string               logo
 	 * @property \Orm\Entity\Category category
-	 * @property \Orm\Entity\Enigma child
+	 * @property \Orm\Entity\Enigma   child
 	 */
-
-	class Enigma extends Entity{
-		public function tableDefinition(){
+	class Enigma extends Entity {
+		public function tableDefinition() {
 			$this->name('enigma');
 			$this->form('form-enigma');
 			$this->field('id')
@@ -56,20 +55,19 @@
 				->type(Field::INT)
 				->beNull(false)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['Category', 'id']
 				]);
 			$this->field('child')
 				->type(Field::INT)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['Enigma', 'id'],
-					'join' => Builder::JOIN_LEFT
+					'join'      => Builder::JOIN_LEFT
 				]);
 		}
 
-		public function beforeInsert()
-		{
+		public function beforeInsert() {
 			$this->validation->text('title', 'titre')
 				->different('', 'Vous devez donner un titre à cette énigme');
 
@@ -80,11 +78,10 @@
 				->different('', 'Vous devez donner une réponse à cette énigme');
 
 			$this->validation->text('points', 'nombre de points')
-				->between([1,100], 'Le nombre de points doit être compris entre 1 et 100');
+				->between([1, 100], 'Le nombre de points doit être compris entre 1 et 100');
 		}
 
-		public function beforeUpdate()
-		{
+		public function beforeUpdate() {
 			$this->validation->text('title', 'titre')
 				->different('', 'Vous devez donner un titre à cette énigme');
 
@@ -95,6 +92,6 @@
 				->different('', 'Vous devez donner une réponse à cette énigme');
 
 			$this->validation->text('points', 'nombre de points')
-				->between([1,100], 'Le nombre de points doit être compris entre 1 et 100');
+				->between([1, 100], 'Le nombre de points doit être compris entre 1 et 100');
 		}
 	}

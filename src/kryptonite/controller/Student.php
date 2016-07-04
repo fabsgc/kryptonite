@@ -8,15 +8,16 @@
 	use System\Response\Response;
 	use System\Sql\Sql;
 	use System\Template\Template;
+	use System\Url\Url;
 
-	class Student extends Controller{
-		public function init(){
-			if($_SESSION['kryptonite']['role'] != 'TEACHER'){
+	class Student extends Controller {
+		public function init() {
+			if ($_SESSION['kryptonite']['role'] != 'TEACHER') {
 				Response::getInstance()->status(404);
 			}
 		}
 
-		public function actionCreate(StudentRequest $request, $username, $email){
+		public function actionCreate(StudentRequest $request, $username, $email) {
 			return (new Template('student/create', 'kryptonite-student-create'))
 				->assign('title', 'Nouvel élève')
 				->assign('request', $request)
@@ -25,8 +26,8 @@
 				->show();
 		}
 
-		public function actionCreateSave(StudentRequest $request, $username, $email){
-			if($request->sent() && $request->valid()){
+		public function actionCreateSave(StudentRequest $request, $username, $email) {
+			if ($request->sent() && $request->valid()) {
 				$password = uniqid();
 
 				$parent = User::find()
@@ -43,22 +44,22 @@
 				$user->insert();
 
 				$mail = new Mail([
-					'sender' => 'contact@mazemind.fr',
+					'sender'   => 'contact@mazemind.fr',
 					'receiver' => $email,
-					'subject' => 'Votre inscription sur Kryptonite',
+					'subject'  => 'Votre inscription sur Kryptonite',
 				]);
 
 				$mail->addTemplate('mail/registerStudent', [
-					'user' => $user,
+					'user'     => $user,
 					'password' => $password
 				]);
 
 				$mail->send();
 
-				Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.user.home-students'));
+				Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 				$_SESSION['flash'] = 'L\'inscription a bien été enregistrée. Nous avons envoyé un mail à cet étudiant';
 			}
-			else{
+			else {
 				return (new Template('student/create', 'kryptonite-student-create'))
 					->assign('title', 'Nouvel élève')
 					->assign('request', $request)
@@ -68,7 +69,7 @@
 			}
 		}
 
-		public function actionUpdate(StudentRequest $request, $id){
+		public function actionUpdate(StudentRequest $request, $id) {
 			/** @var \Orm\Entity\User $user */
 			$user = User::find()
 				->vars('id', $id)
@@ -76,7 +77,7 @@
 				->where('User.id = :id AND User.parent = :parent')
 				->fetch()->first();
 
-			if($user != null){
+			if ($user != null) {
 				return (new Template('student/update', 'kryptonite-student-update'))
 					->assign('title', 'Modifier un élève')
 					->assign('id', $id)
@@ -85,12 +86,12 @@
 					->assign('email', $user->email)
 					->show();
 			}
-			else{
+			else {
 				Response::getInstance()->status(404);
 			}
 		}
 
-		public function actionUpdateSave(StudentRequest $request, $id, $username, $email){
+		public function actionUpdateSave(StudentRequest $request, $id, $username, $email) {
 			/** @var \Orm\Entity\User $user */
 			$user = User::find()
 				->vars('id', $id)
@@ -98,29 +99,29 @@
 				->where('User.id = :id AND User.parent = :parent')
 				->fetch()->first();
 
-			if($user != null){
-				if($request->sent() && $request->valid()){
+			if ($user != null) {
+				if ($request->sent() && $request->valid()) {
 					$user->username = $username;
 					$user->email = $email;
 					$user->update();
 
 					$mail = new Mail([
-						'sender' => 'contact@mazemind.fr',
+						'sender'   => 'contact@mazemind.fr',
 						'receiver' => $email,
-						'subject' => 'Votre inscription sur Kryptonite',
+						'subject'  => 'Votre inscription sur Kryptonite',
 					]);
 
 					$mail->addTemplate('mail/registerStudent', [
-						'user' => $user,
+						'user'     => $user,
 						'password' => '*****'
 					]);
 
 					$mail->send();
 
-					Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.user.home-students'));
+					Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 					$_SESSION['flash'] = 'L\'inscription a bien été modifiée. Nous avons envoyé un mail à cet étudiant';
 				}
-				else{
+				else {
 					return (new Template('student/update', 'kryptonite-student-update'))
 						->assign('title', 'Modifier un élève')
 						->assign('id', $id)
@@ -130,19 +131,19 @@
 						->show();
 				}
 			}
-			else{
+			else {
 				Response::getInstance()->status(404);
 			}
 		}
 
-		public function actionDelete($id){
+		public function actionDelete($id) {
 			$user = User::find()
 				->vars('id', $id)
 				->vars('parent', $_SESSION['kryptonite']['id'])
 				->where('User.id = :id AND User.parent = :parent')
 				->fetch()->first();
 
-			if($user != null){
+			if ($user != null) {
 				$query = new Sql();
 				$query->vars('user', $id);
 				$query->query('delete-enigma', 'DELETE FROM enigma_user WHERE user = :user');
@@ -151,10 +152,10 @@
 				$query->fetch('delete-success', Sql::PARAM_FETCHDELETE);
 				$user->delete();
 
-				Response::getInstance()->header('Location: '. $this->getUrl('kryptonite.user.home-students'));
+				Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 				$_SESSION['flash'] = 'L\'étudiant a bien été supprimé';
 			}
-			else{
+			else {
 				Response::getInstance()->status(404);
 			}
 		}

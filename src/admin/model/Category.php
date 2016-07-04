@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerCategory extends Model{
+	class ManagerCategory extends Model {
 	}

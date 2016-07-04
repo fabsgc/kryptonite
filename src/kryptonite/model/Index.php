@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerIndex extends Model{
+	class ManagerIndex extends Model {
 	}

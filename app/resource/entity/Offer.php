@@ -3,19 +3,17 @@
 
 	use System\Orm\Entity\Entity;
 	use System\Orm\Entity\Field;
-	use System\Orm\Entity\ForeignKey;
 
 	/**
 	 * Class Offer
 	 * @property integer id
-	 * @property string title
+	 * @property string  title
 	 * @property integer price
 	 * @property integer duration
 	 * @package Orm\Entity
-    */
-
-	class Offer extends Entity{
-		public function tableDefinition(){
+	 */
+	class Offer extends Entity {
+		public function tableDefinition() {
 			$this->name('offer');
 			$this->form('form-offer');
 			$this->field('id')
@@ -35,15 +33,12 @@
 				->beNull(false);
 		}
 
-        public function beforeInsert(){
+		public function beforeInsert() {
+		}
 
-        }
+		public function beforeUpdate() {
+		}
 
-        public function beforeUpdate(){
-
-        }
-
-        public function beforeDelete(){
-
-        }
+		public function beforeDelete() {
+		}
 	}

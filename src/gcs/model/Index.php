@@ -3,7 +3,7 @@
 
 	use System\Model\Model;
 
-	class ManagerIndex extends Model{
-		public function init(){
+	class ManagerIndex extends Model {
+		public function init() {
 		}
 	}

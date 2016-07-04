@@ -8,25 +8,24 @@
 
 	/**
 	 * Class User
-	 * @property int id
-	 * @property integer parent
-	 * @property int enigma
-	 * @property int suscribe
-	 * @property string token
-	 * @property string username
-	 * @property string email
-	 * @property string password
-	 * @property string role
-	 * @property integer coins
-	 * @property string avatar
-	 * @property integer activated
-	 * @property integer suscribe_end
+	 * @property int                  id
+	 * @property integer              parent
+	 * @property int                  enigma
+	 * @property int                  suscribe
+	 * @property string               token
+	 * @property string               username
+	 * @property string               email
+	 * @property string               password
+	 * @property string               role
+	 * @property integer              coins
+	 * @property string               avatar
+	 * @property integer              activated
+	 * @property integer              suscribe_end
 	 * @property \Orm\Entity\Enigma[] enigmas
 	 * @package Orm\Entity
 	 */
-
-	class User extends Entity{
-		public function tableDefinition(){
+	class User extends Entity {
+		public function tableDefinition() {
 			$this->name('user');
 			$this->form('form-user');
 			$this->field('id')
@@ -37,16 +36,16 @@
 			$this->field('parent')
 				->type(Field::INT)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['User', 'id'],
-					'join' => Builder::JOIN_LEFT
+					'join'      => Builder::JOIN_LEFT
 				]);
 			$this->field('enigma')
 				->type(Field::INT)
 				->foreign([
-					'type' => ForeignKey::MANY_TO_ONE,
+					'type'      => ForeignKey::MANY_TO_ONE,
 					'reference' => ['Enigma', 'id'],
-					'join' => Builder::JOIN_LEFT
+					'join'      => Builder::JOIN_LEFT
 				]);
 			$this->field('token')
 				->unique(true)
@@ -88,15 +87,12 @@
 				->defaultValue('0');
 		}
 
-        public function beforeInsert(){
+		public function beforeInsert() {
+		}
 
-        }
+		public function beforeUpdate() {
+		}
 
-        public function beforeUpdate(){
-
-        }
-
-        public function beforeDelete(){
-
-        }
+		public function beforeDelete() {
+		}
 	}

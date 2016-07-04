@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <src name="gcs"/>
-  <src name="kryptonite"/>
-  <src name="admin"/>
+	<src name="gcs"/>
+	<src name="kryptonite"/>
+	<src name="admin"/>
 </root>

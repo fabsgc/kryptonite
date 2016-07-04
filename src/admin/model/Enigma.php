@@ -3,5 +3,5 @@
 
 	use System\Model\Model;
 
-	class ManagerEnigma extends Model{
+	class ManagerEnigma extends Model {
 	}

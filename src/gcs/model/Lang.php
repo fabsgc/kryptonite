@@ -3,7 +3,7 @@
 
 	use System\Model\Model;
 
-	class ManagerLang extends Model{
-		public function init(){
+	class ManagerLang extends Model {
+		public function init() {
 		}
 	}
