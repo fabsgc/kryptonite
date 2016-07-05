@@ -408,7 +408,7 @@ footer .info a{
 
 .standalone-form{
     width: 350px;
-    margin: auto;
+    margin: auto auto 10px auto;
     padding: 25px 0 8px 0;
     background-color: #354054;
     border-bottom: 5px solid #74A79C;

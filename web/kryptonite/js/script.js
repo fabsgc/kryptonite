@@ -8,9 +8,14 @@ $( document ).ready(function() {
 
 function height(){
 	var height = document.getElementById('main').offsetHeight + document.getElementsByTagName('header')[0].offsetHeight + document.getElementsByTagName('footer')[0].offsetHeight;
-	
-	if(window.innerHeight >  height + 49)
-		document.getElementById('sub-main').style.height = window.innerHeight - document.getElementsByTagName('header')[0].offsetHeight - document.getElementById('main').offsetHeight - document.getElementsByTagName('footer')[0].offsetHeight - 25 + "px";
+	var margin = 0;
+
+	if(window.location.href != 'http://www.kryptonite.dev/user/sign-in'){
+		margin = 10;
+	}
+
+	if(window.innerHeight >  height + 35)
+		document.getElementById('sub-main').style.height = window.innerHeight - document.getElementsByTagName('header')[0].offsetHeight - document.getElementById('main').offsetHeight - document.getElementsByTagName('footer')[0].offsetHeight - 35 + margin + "px";
 	else
 		document.getElementById('sub-main').style.height = "0px";
 }
