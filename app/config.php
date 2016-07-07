@@ -46,6 +46,11 @@
 			]
 		],
 
+		'security' => [
+			'firewall' => true,
+			'spam'     => true
+		],
+
 		'secure' => [
 			'get'  => true,
 			'post' => true
@@ -69,15 +74,6 @@
 			]
 		],
 
-		'security' => [
-			'firewall' => true,
-			'spam'     => true
-		],
-
-		'define' => [
-			'prefix' => 'USER_'
-		],
-
 		'mail' => [
 			'enabled' => false,
 			'smtp'    => [
@@ -87,5 +83,17 @@
 				'password' => 'password',
 				'from'     => 'contact@example.com'
 			]
+		],
+
+		'library' => [
+
+		],
+
+		'template' => [
+
+		],
+
+		'custom' => [
+
 		]
 	];
