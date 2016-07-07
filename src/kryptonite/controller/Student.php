@@ -13,7 +13,7 @@
 	class Student extends Controller {
 		public function init() {
 			if ($_SESSION['kryptonite']['role'] != 'TEACHER') {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -56,7 +56,7 @@
 
 				$mail->send();
 
-				Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
+				Response::instance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 				$_SESSION['flash'] = 'L\'inscription a bien été enregistrée. Nous avons envoyé un mail à cet étudiant';
 			}
 			else {
@@ -87,7 +87,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -118,7 +118,7 @@
 
 					$mail->send();
 
-					Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
+					Response::instance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 					$_SESSION['flash'] = 'L\'inscription a bien été modifiée. Nous avons envoyé un mail à cet étudiant';
 				}
 				else {
@@ -132,7 +132,7 @@
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -152,11 +152,11 @@
 				$query->fetch('delete-success', Sql::PARAM_FETCHDELETE);
 				$user->delete();
 
-				Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
+				Response::instance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 				$_SESSION['flash'] = 'L\'étudiant a bien été supprimé';
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 	}

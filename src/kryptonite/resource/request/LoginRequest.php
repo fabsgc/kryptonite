@@ -16,8 +16,8 @@
 					'constraint' => '==',
 					'value'      => 1,
 					'vars'       => [
-						'username' => Data::getInstance()->post['username'],
-						'password' => sha1(Data::getInstance()->post['password'])
+						'username' => Data::instance()->post['username'],
+						'password' => sha1(Data::instance()->post['password'])
 					]
 				],
 					'Identifiants incorrects');

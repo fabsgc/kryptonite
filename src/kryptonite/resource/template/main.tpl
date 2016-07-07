@@ -68,7 +68,7 @@
 					'kryptonite.user.suscribeStudentSave'
 				];
 
-				$nameRequest = \System\Request\Request::getInstance()->name;
+				$nameRequest = \System\Request\Request::instance()->name;
 			}}
 
 			<div id="main" {gc:if condition="in_array($nameRequest,$namesRequest)"}class="main-home"{/gc:if}>

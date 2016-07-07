@@ -57,11 +57,11 @@
 				}
 				else {
 					$_SESSION['flash'] = 'Vous n\'avez pas encore accès à cette énigme';
-					Response::getInstance()->header('Location:' . Url::get('kryptonite.user.default'));
+					Response::instance()->header('Location:' . Url::get('kryptonite.user.default'));
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -112,11 +112,11 @@
 
 				if ($enigma->child != null) {
 					$_SESSION['flash'] = 'C\'était la bonne réponse, bravo, énigme suivante !';
-					Response::getInstance()->header('Location:' . Url::get('kryptonite.enigma.enigma', [$enigma->child->id, slugify($enigma->child->title)]));
+					Response::instance()->header('Location:' . Url::get('kryptonite.enigma.enigma', [$enigma->child->id, slugify($enigma->child->title)]));
 				}
 				else {
 					$_SESSION['flash'] = 'C\'était la bonne réponse, bravo !';
-					Response::getInstance()->header('Location:' . Url::get('kryptonite.user.default'));
+					Response::instance()->header('Location:' . Url::get('kryptonite.user.default'));
 				}
 			}
 			else {

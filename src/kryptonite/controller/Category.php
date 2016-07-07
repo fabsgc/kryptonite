@@ -27,7 +27,7 @@
 
 			if ($category != null) {
 				if ($slug != slugify($category->title)) {
-					Response::getInstance()->header('Location: ' . Url::get('kryptonite.category.category', [$category->id, slugify($category->title)]));
+					Response::instance()->header('Location: ' . Url::get('kryptonite.category.category', [$category->id, slugify($category->title)]));
 				}
 				else {
 					$enigmas = Enigma::find()
@@ -43,7 +43,7 @@
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 	}

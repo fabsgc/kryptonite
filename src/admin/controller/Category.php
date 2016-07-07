@@ -30,7 +30,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -45,7 +45,7 @@
 		public function actionNewSave(\Orm\Entity\Category $category) {
 			if ($category->sent() && $category->valid()) {
 				$category->insert();
-				Response::getInstance()->header('Location: ' . Url::get('admin.category.default'));
+				Response::instance()->header('Location: ' . Url::get('admin.category.default'));
 				$_SESSION['flash'] = 'La catégorie a bien été ajoutée';
 			}
 			else {
@@ -71,7 +71,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -87,10 +87,10 @@
 						$category->update();
 					}
 					catch (MissingEntityException $e) {
-						Response::getInstance()->status(500);
+						Response::instance()->status(500);
 					}
 
-					Response::getInstance()->header('Location: ' . Url::get('admin.category.default'));
+					Response::instance()->header('Location: ' . Url::get('admin.category.default'));
 					$_SESSION['flash'] = 'La catégorie a bien été modifiée';
 				}
 				else {
@@ -102,7 +102,7 @@
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -114,11 +114,11 @@
 
 			if ($category->count() == 1) {
 				$category->first()->delete();
-				Response::getInstance()->header('Location: ' . Url::get('admin.category.default'));
+				Response::instance()->header('Location: ' . Url::get('admin.category.default'));
 				$_SESSION['flash'] = 'La catégorie a bien été supprimée';
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 	}

@@ -9,8 +9,9 @@ $( document ).ready(function() {
 function height(){
 	var height = document.getElementById('main').offsetHeight + document.getElementsByTagName('header')[0].offsetHeight + document.getElementsByTagName('footer')[0].offsetHeight;
 	var margin = 0;
-
-	if(window.location.href != 'http://www.kryptonite.dev/user/sign-in'){
+console.log(window.location.href);
+	if(window.location.href != 'http://www.kryptonite.dev/user/sign-in' && window.location.href != 'http://www.kryptonite.dev:83/user/sign-in' &&
+	   window.location.href != 'http://www.kryptonite.dev/user/sign-up' && window.location.href != 'http://www.kryptonite.dev:83/user/sign-up'){
 		margin = 10;
 	}
 

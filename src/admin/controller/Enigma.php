@@ -31,7 +31,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -51,7 +51,7 @@
 				if ($enigma->sent() && $enigma->valid()) {
 					$enigma->description = html_entity_decode($enigma->description);
 					$enigma->insert();
-					Response::getInstance()->header('Location: ' . Url::get('admin.category.see', [$id]));
+					Response::instance()->header('Location: ' . Url::get('admin.category.see', [$id]));
 					$_SESSION['flash'] = 'L\'énigme a bien été créée';
 				}
 				else {
@@ -65,7 +65,7 @@
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -92,7 +92,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -116,10 +116,10 @@
 						$enigma->update();
 					}
 					catch (MissingEntityException $e) {
-						Response::getInstance()->status(500);
+						Response::instance()->status(500);
 					}
 
-					Response::getInstance()->header('Location: ' . Url::get('admin.category.see', [$enigm->category->id]));
+					Response::instance()->header('Location: ' . Url::get('admin.category.see', [$enigm->category->id]));
 					$_SESSION['flash'] = 'L\'énigme a bien été éditée';
 				}
 				else {
@@ -133,7 +133,7 @@
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -146,11 +146,11 @@
 
 			if ($enigma != null) {
 				$enigma->delete();
-				Response::getInstance()->header('Location: ' . Url::get('admin.category.see', [$enigma->category->id]));
+				Response::instance()->header('Location: ' . Url::get('admin.category.see', [$enigma->category->id]));
 				$_SESSION['flash'] = 'L\'énigme a bien été supprimée';
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 	}

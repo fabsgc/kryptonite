@@ -33,43 +33,43 @@
 		<div id="side-menu">
 			<ul>
 			    {{php: use System\Request\Request }}
-				<li {gc:if condition="Request::getInstance()->controller == 'index'"} class="active" {/gc:if}>
+				<li {gc:if condition="Request::instance()->controller == 'index'"} class="active" {/gc:if}>
 					<a href="{{url:admin.index.default}}">
 						<i class="fa fa-home"></i>
 						<span class="title">Accueil</span>
 					</a>
 				</li>
-				<li {gc:if condition="Request::getInstance()->controller == 'manager'"} class="active" {/gc:if}>
+				<li {gc:if condition="Request::instance()->controller == 'manager'"} class="active" {/gc:if}>
 					<a href="{{url:admin.manager.default}}">
 						<i class="fa fa-user-times"></i>
 						<span class="title">Managers</span>
 					</a>
 				</li>
-				<li {gc:if condition="Request::getInstance()->controller == 'user'"} class="active" {/gc:if}>
+				<li {gc:if condition="Request::instance()->controller == 'user'"} class="active" {/gc:if}>
 					<a href="{{url:admin.user.default}}">
 						<i class="fa fa-users"></i>
 						<span class="title">Utilisateurs</span>
 					</a>
 				</li>
-				<li {gc:if condition="Request::getInstance()->controller == 'enigma' || Request::getInstance()->controller == 'Category'"} class="active" {/gc:if}>
+				<li {gc:if condition="Request::instance()->controller == 'enigma' || Request::instance()->controller == 'Category'"} class="active" {/gc:if}>
                     <a href="{{url:admin.category.default}}">
                         <i class="fa fa-university"></i>
                         <span class="title">Enigmes</span>
                     </a>
                 </li>
-				<li {gc:if condition="Request::getInstance()->controller == 'success'"} class="active" {/gc:if}>
+				<li {gc:if condition="Request::instance()->controller == 'success'"} class="active" {/gc:if}>
 					<a href="{{url:admin.success.default}}">
 						<i class="fa fa-gamepad"></i>
 						<span class="title">Badges</span>
 					</a>
 				</li>
-                <li {gc:if condition="Request::getInstance()->controller == 'payment'"} class="active" {/gc:if}>
+                <li {gc:if condition="Request::instance()->controller == 'payment'"} class="active" {/gc:if}>
                     <a href="{{url:admin.payment.default}}">
                         <i class="fa fa-credit-card"></i>
                         <span class="title">Paiements</span>
                     </a>
                 </li>
-                <li {gc:if condition="Request::getInstance()->controller == 'upload'"} class="active" {/gc:if}>
+                <li {gc:if condition="Request::instance()->controller == 'upload'"} class="active" {/gc:if}>
                     <a href="{{url:admin.upload.default}}">
                         <i class="fa fa-cloud"></i>
                         <span class="title">Upload</span>
@@ -78,7 +78,7 @@
 			</ul>
 		</div>
 		<div id="main">
-		    {gc:if condition="Request::getInstance()->controller == 'index'"}
+		    {gc:if condition="Request::instance()->controller == 'index'"}
 		        <h2>{$title}</h2>
 		    {/gc:if}
             <div id="fil-ariane">

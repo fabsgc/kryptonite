@@ -51,7 +51,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -77,7 +77,7 @@
 				$user->password = sha1($password);
 				$user->update();
 
-				Response::getInstance()->header('Location: ' . Url::get('kryptonite.index.default'));
+				Response::instance()->header('Location: ' . Url::get('kryptonite.index.default'));
 				$_SESSION['flash'] = 'Votre compte a bien été mis à jour';
 			}
 			else {
@@ -110,7 +110,7 @@
 					->show();
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -139,7 +139,7 @@
 
 						$user->update();
 
-						Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.default'));
+						Response::instance()->header('Location: ' . Url::get('kryptonite.user.default'));
 						$_SESSION['flash'] = 'Vous vous êtes bien abonné(e) pour une durée de ' . $offerData->title . ' ';
 					}
 					else {
@@ -156,7 +156,7 @@
 
 							$studentData->update();
 
-							Response::getInstance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
+							Response::instance()->header('Location: ' . Url::get('kryptonite.user.home-students'));
 							$_SESSION['flash'] = 'Vous avez bien abonné vos élèves pour une durée de ' . $offerData->title . ' ';
 						}
 					}
@@ -183,7 +183,7 @@
 				}
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 
@@ -216,7 +216,7 @@
 				$_SESSION['kryptonite']['avatar'] = $user->avatar;
 				$_SESSION['kryptonite']['suscribe_end'] = $user->suscribe_end;
 
-				Response::getInstance()->header('Location: ' . Url::get('kryptonite.index.default'));
+				Response::instance()->header('Location: ' . Url::get('kryptonite.index.default'));
 				$_SESSION['flash'] = 'Vous êtes connecté(e)';
 			}
 			else {
@@ -261,7 +261,7 @@
 
 				$mail->send();
 
-				Response::getInstance()->header('Location: ' . Url::get('kryptonite.index.default'));
+				Response::instance()->header('Location: ' . Url::get('kryptonite.index.default'));
 				$_SESSION['flash'] = 'Votre inscription a bien été enregistrée. Veuillez suivre instructions que nous allons vous envoyer par mail';
 			}
 			else {
@@ -278,7 +278,7 @@
 
 		public function actionLogout() {
 			$_SESSION['kryptonite'] = [];
-			Response::getInstance()->header('Location: ' . Url::get('kryptonite.index.default'));
+			Response::instance()->header('Location: ' . Url::get('kryptonite.index.default'));
 			$_SESSION['flash'] = 'Vous avez bien été déconnecté(e)';
 		}
 
@@ -292,11 +292,11 @@
 			if ($user != null) {
 				$user->activated = 1;
 				$user->update();
-				Response::getInstance()->header('Location: ' . Url::get('kryptonite.index.default'));
+				Response::instance()->header('Location: ' . Url::get('kryptonite.index.default'));
 				$_SESSION['flash'] = 'Votre compte a bien été activé';
 			}
 			else {
-				Response::getInstance()->status(404);
+				Response::instance()->status(404);
 			}
 		}
 	}
