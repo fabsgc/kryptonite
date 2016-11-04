@@ -125,7 +125,7 @@
 					$studentsData = \Orm\Entity\User::find()->vars('id', $_SESSION['kryptonite']['id'])->where('User.parent = :id')->fetch();
 					/** @var \Orm\Entity\User $user */
 					$user = \Orm\Entity\User::find()->vars('id', $_SESSION['kryptonite']['id'])->where('User.id = :id')->fetch(Builder::RETURN_ENTITY);
-					$price;
+					$price = 0;
 
 					if ($id == null) {
 						$price = round($offerData->price * 1.2, 2);

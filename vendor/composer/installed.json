@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fabsgc/framework.git",
-            "reference": "586e6d19274683a5b5dbdd75b17ff2fe64357af3"
+            "reference": "0273375a7afe54a306f616b8932a1d7f9c1d99d7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fabsgc/framework/zipball/586e6d19274683a5b5dbdd75b17ff2fe64357af3",
-            "reference": "586e6d19274683a5b5dbdd75b17ff2fe64357af3",
+            "url": "https://api.github.com/repos/fabsgc/framework/zipball/0273375a7afe54a306f616b8932a1d7f9c1d99d7",
+            "reference": "0273375a7afe54a306f616b8932a1d7f9c1d99d7",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.12"
         },
-        "time": "2016-07-07 22:21:25",
+        "time": "2016-07-09 02:42:14",
         "type": "project",
         "extra": {
             "branch-alias": {
@@ -42,18 +42,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fabsgc/scaffolding.git",
-            "reference": "05de5ecedfcd236e52151e0c5dde691d51d9ccdc"
+            "reference": "573e021c1c88d1174720d57057b7c7f8d690ffc4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/05de5ecedfcd236e52151e0c5dde691d51d9ccdc",
-            "reference": "05de5ecedfcd236e52151e0c5dde691d51d9ccdc",
+            "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/573e021c1c88d1174720d57057b7c7f8d690ffc4",
+            "reference": "573e021c1c88d1174720d57057b7c7f8d690ffc4",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.12"
         },
-        "time": "2016-07-07 22:21:42",
+        "time": "2016-07-09 02:41:01",
         "type": "project",
         "extra": {
             "branch-alias": {
