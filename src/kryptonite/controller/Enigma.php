@@ -14,17 +14,20 @@
 
 			$listEnigmasDones = $this->getListEnigmasDone($_SESSION['kryptonite']['id']);
 			$available = false;
+
+			/** @var \Orm\Entity\Enigma $enigma */
 			$enigma = \Orm\Entity\Enigma::find()
 				->vars('id', $id)
 				->where('Enigma.id = :id')
 				->fetch()->first();
 
+			/** @var User $user */
 			$user = User::find()
 				->vars('id', $_SESSION['kryptonite']['id'])
 				->where('User.id = :id')
 				->fetch()->first();
 
-			if ($enigma != null) {
+			if ($enigma instanceof \Orm\Entity\Enigma) {
 				//Si l'énigme est déjà dans la liste des énigmes en cours, alors, c'est bon il peut passer
 				foreach ($listEnigmasDones as $listEnigmasDone) {
 					if ($listEnigmasDone->id == $id) {

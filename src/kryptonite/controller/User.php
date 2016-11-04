@@ -289,7 +289,7 @@
 				->vars('token', $id)
 				->fetch()->first();
 
-			if ($user != null) {
+			if ($user instanceof \Orm\Entity\User) {
 				$user->activated = 1;
 				$user->update();
 				Response::instance()->header('Location: ' . Url::get('kryptonite.index.default'));

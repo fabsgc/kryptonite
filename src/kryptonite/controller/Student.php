@@ -77,7 +77,7 @@
 				->where('User.id = :id AND User.parent = :parent')
 				->fetch()->first();
 
-			if ($user != null) {
+			if ($user instanceof User) {
 				return (new Template('student/update', 'kryptonite-student-update'))
 					->assign('title', 'Modifier un élève')
 					->assign('id', $id)
@@ -99,7 +99,7 @@
 				->where('User.id = :id AND User.parent = :parent')
 				->fetch()->first();
 
-			if ($user != null) {
+			if ($user instanceof User) {
 				if ($request->sent() && $request->valid()) {
 					$user->username = $username;
 					$user->email = $email;
@@ -143,7 +143,7 @@
 				->where('User.id = :id AND User.parent = :parent')
 				->fetch()->first();
 
-			if ($user != null) {
+			if ($user instanceof User) {
 				$query = new Sql();
 				$query->vars('user', $id);
 				$query->query('delete-enigma', 'DELETE FROM enigma_user WHERE user = :user');

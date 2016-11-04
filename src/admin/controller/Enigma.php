@@ -16,7 +16,7 @@
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($category != null) {
+			if ($category instanceof Category) {
 				$enigmas = \Orm\Entity\Enigma::find()
 					->vars('category', $id)
 					->where('Enigma.category = :category')
@@ -42,7 +42,7 @@
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($category != null) {
+			if ($category instanceof Category) {
 				$enigmas = \Orm\Entity\Enigma::find()
 					->vars('category', $id)
 					->where('Enigma.category = :category')
@@ -76,7 +76,7 @@
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($enigma != null) {
+			if ($enigma instanceof \Orm\Entity\Enigma) {
 				$enigmas = \Orm\Entity\Enigma::find()
 					->vars('id', $enigma->id)
 					->vars('category', $enigma->category->id)
@@ -97,13 +97,13 @@
 		}
 
 		public function actionEditSave($id, \Orm\Entity\Enigma $enigma) {
-			/** @var \Orm\Entity\Enigma $enigma */
+			/** @var \Orm\Entity\Enigma $enigm */
 			$enigm = \Orm\Entity\Enigma::find()
 				->where('Enigma.id = :id')
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($enigm != null) {
+			if ($enigm instanceof \Orm\Entity\Enigma) {
 				$enigmas = \Orm\Entity\Enigma::find()
 					->vars('id', $enigma->id)
 					->vars('category', $enigma->category->id)
@@ -144,7 +144,7 @@
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($enigma != null) {
+			if ($enigma instanceof \Orm\Entity\Enigma) {
 				$enigma->delete();
 				Response::instance()->header('Location: ' . Url::get('admin.category.see', [$enigma->category->id]));
 				$_SESSION['flash'] = 'L\'énigme a bien été supprimée';

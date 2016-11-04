@@ -25,7 +25,7 @@
 				->fetch()
 				->first();
 
-			if ($category != null) {
+			if ($category instanceof \Orm\Entity\Category) {
 				if ($slug != slugify($category->title)) {
 					Response::instance()->header('Location: ' . Url::get('kryptonite.category.category', [$category->id, slugify($category->title)]));
 				}
