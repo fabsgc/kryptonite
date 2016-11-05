@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabsgc/framework.git",
-                "reference": "0273375a7afe54a306f616b8932a1d7f9c1d99d7"
+                "reference": "cdde6ef4fc37787ac4367093f1d3b9bb8f9efb2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/framework/zipball/0273375a7afe54a306f616b8932a1d7f9c1d99d7",
-                "reference": "0273375a7afe54a306f616b8932a1d7f9c1d99d7",
+                "url": "https://api.github.com/repos/fabsgc/framework/zipball/cdde6ef4fc37787ac4367093f1d3b9bb8f9efb2c",
+                "reference": "cdde6ef4fc37787ac4367093f1d3b9bb8f9efb2c",
                 "shasum": ""
             },
             "require": {
@@ -39,7 +39,7 @@
                 "framework",
                 "gcsystem"
             ],
-            "time": "2016-07-09 02:42:14"
+            "time": "2016-11-05 16:26:21"
         },
         {
             "name": "gcsystem/scaffolding",
@@ -47,12 +47,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabsgc/scaffolding.git",
-                "reference": "573e021c1c88d1174720d57057b7c7f8d690ffc4"
+                "reference": "eccca02c2e0f1ab115a1bd25a2188ee714a0bb5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/573e021c1c88d1174720d57057b7c7f8d690ffc4",
-                "reference": "573e021c1c88d1174720d57057b7c7f8d690ffc4",
+                "url": "https://api.github.com/repos/fabsgc/scaffolding/zipball/eccca02c2e0f1ab115a1bd25a2188ee714a0bb5f",
+                "reference": "eccca02c2e0f1ab115a1bd25a2188ee714a0bb5f",
                 "shasum": ""
             },
             "require": {
@@ -78,7 +78,7 @@
                 "framework",
                 "gcsystem"
             ],
-            "time": "2016-07-09 02:41:01"
+            "time": "2016-11-05 16:25:42"
         }
     ],
     "packages-dev": [],
