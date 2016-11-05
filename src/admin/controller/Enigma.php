@@ -1,7 +1,6 @@
 <?php
 	namespace Admin;
 
-	use Orm\Entity\Category;
 	use System\Controller\Controller;
 	use System\Exception\MissingEntityException;
 	use System\Response\Response;
@@ -11,12 +10,12 @@
 	class Enigma extends Controller {
 		public function actionNew($id) {
 			/** @var \Orm\Entity\Category $category */
-			$category = Category::find()
+			$category = \Orm\Entity\Category::find()
 				->where('Category.id = :id')
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($category instanceof Category) {
+			if ($category instanceof \Orm\Entity\Category) {
 				$enigmas = \Orm\Entity\Enigma::find()
 					->vars('category', $id)
 					->where('Enigma.category = :category')
@@ -37,12 +36,12 @@
 
 		public function actionNewSave($id, \Orm\Entity\Enigma $enigma) {
 			/** @var \Orm\Entity\Category $category */
-			$category = Category::find()
+			$category = \Orm\Entity\Category::find()
 				->where('Category.id = :id')
 				->vars('id', $id)
 				->fetch()->first();
 
-			if ($category instanceof Category) {
+			if ($category instanceof \Orm\Entity\Category) {
 				$enigmas = \Orm\Entity\Enigma::find()
 					->vars('category', $id)
 					->where('Enigma.category = :category')
